@@ -1,0 +1,67 @@
+products:
+
+operation:
+1. add new product
+2. update product
+3. delete product
+4. add new nameplate
+
+product parameters
+name --imp
+price --imp
+description
+max rows:
+max. charcters
+material --imp
+cod: --imp
+letter type 
+nameplate used
+fitting place 
+length
+height
+depth
+weight
+
+
+
+
+list:
+1. products
+
+
+Categories:
+
+operation:
+1. add new category
+2. update category
+3. delete category
+
+
+
+--add new product
+---- name  -- input text
+---- price -- input number
+---- description -- text area
+---- images -- section file-input
+---- additional Information -- text area
+---- COD -- select
+---- Material -- input text
+
+
+--add new user contents:
+---- first name
+---- last name
+---- username
+---- password
+---- email
+---- phone number 
+---- dob
+---- gender
+
+
+
+-- orders
+---- completed orders
+---- incomplete orders
+---- new orders
+---- generate invoice
