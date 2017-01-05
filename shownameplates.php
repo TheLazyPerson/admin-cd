@@ -64,584 +64,17 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Name Of the Product</th>
                                             <th>Price</th>
                                             <th>Material Used</th>
                                             <th>Cash On Delivery</th>
                                             <th>Visible</th>
+                                            <th>Details</th>
+                                            <th>Delete</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
+                                    <tbody id="products-table-data">
                                         
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td class="center">Yes</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
                                     </tbody>
                                 </table>
                                 
@@ -678,11 +111,49 @@
      <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
+        var rootUrl = 'http://localhost/work/api/public/';
         $('#dataTables-example').DataTable({
             responsive: true
         });
+
+        $.ajax({
+            
+            url: rootUrl + "products/nameplate",
+            dataType: "json",
+            success : function(result) {
+                var html = "";
+                var productId = "";
+                var productName ="";
+                var productPrice = "";
+                var productMaterial ="";
+                var productCod = "";
+                var productStatus = "";
+                //console.log(result);
+                var total_count = result["product_count"];
+                var data = result['products'];
+                
+                $.each(data, function (key, value) {
+                
+                    productId = data[key]['id'];
+                    productName = data[key]['name'];
+                    productPrice = data[key]['price'];
+                    productMaterial = data[key]['material'];
+                    productCod = data[key]['cod'];
+                    productStatus = data[key]['status'];
+                    if (productMaterial == 1) { productMaterial = "Yes" }
+                    if (productCod == 1) { productCod = "Yes" }
+                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#">Delete</a></td></tr>'; 
+                });
+                $("#products-table-data").html(html);
+                
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+            }
+        })
     });
     </script>
+    
 
 </body>
 

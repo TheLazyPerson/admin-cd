@@ -60,12 +60,7 @@
                         <h3 class="page-header">Manage Products</h3>
                     </div>
                     <!-- /.col-lg-12 -->
-
-                    
-
                 </div>
-
-                 
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
@@ -74,7 +69,7 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
+                                            <th>Name Of the Product</th>
                                             <th>Price</th>
                                             <th>Material Used</th>
                                             <th>Cash On Delivery</th>
@@ -83,331 +78,9 @@
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                    <tbody>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 1</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Product Name 2</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Sample Product Name 4</td>
-                                            <td>200</td>
-                                            <td>Wooden</td>
-                                            <td>Yes</td>
-                                            <td>Yes</td>
-                                            <td class="center"><a href="viewproduct.php">View Product</a></td>
-                                            <td class="center"><a href="#">Delete</a></td>
-                                        </tr>
+                                    <tbody id="nameplates-table-data">
+                                        
+                                       
                                     </tbody>
                                 </table>
                                 
@@ -448,9 +121,46 @@
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
+        
+        var rootUrl = 'http://localhost/work/api/public/';
+        $.ajax({
+            
+            url: rootUrl + "products/normal",
+            dataType: "json",
+            success : function(result) {
+                var html = "";
+                var productId = "";
+                var productName ="";
+                var productPrice = "";
+                var productMaterial ="";
+                var productCod = "";
+                var productStatus = "";
+                //console.log(result);
+                var total_count = result["product_count"];
+                var data = result['products'];
+                
+                $.each(data, function (key, value) {
+                
+                    productId = data[key]['id'];
+                    productName = data[key]['name'];
+                    productPrice = data[key]['price'];
+                    productMaterial = data[key]['material'];
+                    productCod = data[key]['cod'];
+                    productStatus = data[key]['status'];
+                    if (productMaterial == 1) { productMaterial = "Yes" }
+                    if (productCod == 1) { productCod = "Yes" }
+                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#">Delete</a></td></tr>'; 
+                });
+                $("#nameplates-table-data").html(html);
+                $('#dataTables-example').DataTable({
+                    responsive: true
+                });
+                
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+            }
+        })
     });
     </script>
 

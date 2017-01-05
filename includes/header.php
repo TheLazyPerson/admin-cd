@@ -255,7 +255,7 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li>
-                            <a href="orders.php"><i class="fa fa-shopping-cart fa-fw"></i> Orders</a>
+                            <a href="orders.php"><i class="fa fa-gift fa-fw"></i> Orders</a>
                         </li>
                         <li>
                             <a href="#"><i class="fa fa-heart-o fa-fw"></i> Nameplates<span class="fa arrow"></span></a>
@@ -285,22 +285,84 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-
                         <li >
-                            <a href="#"><i class="fa fa-bar-chart-o fa-fw"></i> Job Card<span class="fa arrow"></span></a>
+                            <a href="#"><i class="fa fa-file-image-o fa-fw"></i> Change Images<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
-                                <!-- <li>
-                                    <a href="generatejobcard.php">Generate Job Card</a>
-                                </li> -->
                                 <li>
-                                    <a href="viewjobcard.php">View Job Cards</a>
+                                    <a href="changeimages.php">Product Showcase</a>
+                                </li>
+                                <li>
+                                    <a href="carouselimages.php">Timeline Images</a>
+                                </li>
+                                <li>
+                                    <a href="ourrecentworkimages.php">Our Recent Work Images</a>
                                 </li>
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
                         <li >
+                            <a href="#"><i class="glyphicon glyphicon-th-list "></i> &nbsp;Manage Categories<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showcategories.php">Show Categories</a>
+                                </li>
+                                <li>
+                                    <a href="addnewcategory.php">Add New Category</a>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+                        <li >
+                            <a href="#"><i class="fa fa-gears fa-fw"></i> Manage Materials<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showmaterials.php">Show Materials</a>
+                                </li>
+                                <li>
+                                    <a href="addnewmaterials.php">Add New Material</a>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
+
+                        <li >
+                            <a href="#"><i class="fa fa-certificate fa-fw"></i> Manage Motifs<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showmotifs.php">Show Motifs</a>
+                                </li>
+                                <li>
+                                    <a href="addnewmotif.php">Add New Motif</a>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li>
+                            <a href="markproductrelated.php"><i class="fa fa-sitemap fa-fw"></i> Mark Products Related</a>
+                        </li>
+                        
+
+                        <li >
                             <a href="customerinformation.php"><i class="fa fa-users fa-fw"></i> Customer Information</span></a>
                             
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li >
+                            <a href="#"><i class="fa fa-pencil fa-fw"></i> Manage Blogs<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showblogs.php">Show Blogs</a>
+                                </li>
+                                <li>
+                                    <a href="addnewblog.php">Write New Blog</a>
+                                </li>
+                                
+                            </ul>
                             <!-- /.nav-second-level -->
                         </li>
                     </ul>

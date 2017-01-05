@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Creative Design </title>
+    <title>Creative Design | Add New Product</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -54,54 +54,44 @@
             </div>
             <!-- /.container-fluid -->
               <!-- /.row -->
+            <form role="form" id="insert-product">  
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel panel-default">
-                       
+                      
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    
                                         <div class="form-group">
                                             <label>Product Name</label>
-                                            <input type="text" class="form-control"  placeholder="Product Name">
+                                            <input type="text" class="form-control"  placeholder="Product Name" name="name" id="product-name" required>
                                             <p class="help-block">Please write the product name first</p>
                                         </div>
                                         <div class="form-group">
                                             <label>Price</label>
-                                            <input type="number" class="form-control" placeholder="Price">
+                                            <input type="number" class="form-control" placeholder="Price" name="price" id="product-price" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Description</label>
-                                            <textarea class="form-control" rows="3" placeholder="Product Description"></textarea>
+                                            <textarea class="form-control" rows="3" placeholder="Product Description" name="description" id="product-description" required></textarea>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Add Images</label>
-                                            <input type="file">
-                                            <div>
-                                                <button type="button" class="btn btn-default"><i class=" fa fa-upload fa-fw "></i> Upload</button>    
-                                            </div>
-                                            <p class="help-block">Images will be uploaded one at a time</p>
-                                            <p class="help-block">Only 5 Images can be uploaded.</p>
-                                            <p class="help-block">Image size should be less than 5mb if not then use <a href="https://tinypng.com/">TinyPng Image Size Reducer</a>.</p>
-                                        </div>
-                                        
-                                        <div class="form-group">
                                             <label>Additional Information</label>
-                                            <textarea class="form-control" rows="3"></textarea>
+                                            <textarea class="form-control" rows="3" name="  addtional_information" id="product-additional-information"></textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Cash On Delivery</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="cod" id="product-cod" >
                                                 <option> --SELECT OPTION-- </option>
-                                                <option>Yes</option>
-                                                <option>No</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
                                             </select>
                                         </div>
                                         <div class="form-group">
                                             <label>Material Used</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="material"  id="product-material">
                                                 <option> --SELECT OPTION-- </option>
                                                 <option>Wooden</option>
                                                 <option>Metal</option>
@@ -109,41 +99,59 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Featured Product</label>
-                                            <select class="form-control">
+                                            <select class="form-control" name="featured"  id="product-featured">
                                                 <option> --SELECT OPTION-- </option>
-                                                <option>Yes</option>
-                                                <option>No</option>
+                                                <option value="1">Yes</option>
+                                                <option value="0">No</option>
                                             </select>
                                         </div>
                                        
                                         <button type="submit" class="btn btn-primary">Submit </button>
                                         <button type="reset" class="btn btn-warning">Reset Button</button>
-                                    </form>
+                                    
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
                                 <div class="col-lg-6">
-                                    <h4>Uploaded Images</h4>
+                                   <h4>Product Images</h4>
                                     <div class="row">  
                                     <div class="col-lg-6">
-                                        <img class="img-responsive" src="http://placehold.it/200x200" />
+                                        <label>Product Image 1</label>
+                                        <input type="file" name="productimage" class="product-image" id="product-image-1">
+                                        <br>
+                                        <img class="img-responsive product-image-1" src="http://placehold.it/200x200" />
+
                                     </div>
                                     <div class="col-lg-6">
-                                        <img class="img-responsive" src="http://placehold.it/200x200" />
+                                        <label>Product Image 2</label>
+                                        <input type="file" name="productimage" class="product-image" id="product-image-2">
+                                        <br>
+                                        <img class="img-responsive product-image-2" src="http://placehold.it/200x200" />
                                     </div>
                                     </div>
                                     <br>
                                     <div class="row">  
                                     <div class="col-lg-6">
-                                        <img class="img-responsive" src="http://placehold.it/200x200" />
+                                        <label>Product Image 3</label>
+                                        <input type="file" name="productimage" class="product-image"  id="product-image-3">
+                                        <br>
+                                        <img class="img-responsive product-image-3" src="http://placehold.it/200x200" />
                                     </div>
                                     <div class="col-lg-6">
-                                        <img class="img-responsive" src="http://placehold.it/200x200" />
+                                        <label>Product Image 4</label>
+                                        <input type="file" name="productdimention" class="product-image"  id="product-image-4">
+                                        <br>
+                                        <img class="img-responsive product-image-4" src="http://placehold.it/200x200" />
                                     </div>
                                     </div>
                                     <br>
                                     <div class="row">  
-                                    <div class="col-lg-6">
-                                        <img class="img-responsive" src="http://placehold.it/200x200" />
+                                        <div class="col-lg-6">
+                                            <label>Product Image 5</label>
+                                            <input type="file" name="productdimention" class="product-image"  id="product-image-5">
+                                            <br>
+                                            <img class="img-responsive  product-image-5" src="http://placehold.it/200x200" />
+                                        </div>
+                                    
                                     </div>
                                     
                                     </div>
@@ -159,6 +167,7 @@
                 <!-- /.col-lg-12 -->
             </div>
             <!-- /.row -->
+            </form>
         </div>
         <!-- /#page-wrapper -->
 
@@ -179,6 +188,8 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
+
+    <script src="js/addnewproduct.js"></script>
 
 </body>
 
