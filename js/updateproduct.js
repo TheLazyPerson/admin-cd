@@ -28,6 +28,11 @@ $(document).ready(function (e) {
 
     $("#product-category").change(function(){
     	var categoryid = $(this).val();
+    	
+    	loadSubCategories(categoryid);
+    });
+
+    function loadSubCategories(categoryid){
     	$.ajax({
 	        url: rootUrl + "/category/"+categoryid,
 	        dataType: "json",
@@ -47,8 +52,7 @@ $(document).ready(function (e) {
 	            console.log(xhr, resp, text);
 	        }
 	    });
-
-    });
+    }
     $.ajax({
         url: rootUrl + "materials",
         dataType: "json",
@@ -71,6 +75,107 @@ $(document).ready(function (e) {
     });
 
     
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+
+        //do validation for id whether it is number  or not
+        var id = getUrlParameter('id');
+
+        $.ajax({
+            
+            url: rootUrl + "productnormal/" + id,
+            dataType: "json",
+            success : function(result) {
+                
+                var data = result['product'];
+
+                productId = data['id'];
+                productName = data['name'];
+                productPrice = data['price'];
+                productDescription = data['description'];
+                productAddtionalInformation = data['additionalInformation'];
+                productMaterial = data['material'];
+                productLength = data['length'];
+                productWidth = data['width'];
+                productDepth = data['depth'];
+                productWeight = data['weight'];
+                productSubCategory = data['subcategory'];
+                productCategory = data['category'];
+                productNotes = data['notes'];
+
+                productCod = data['cod'];
+                productFeatured = data['featured'];
+                productStatus = data['status'];
+                    
+                
+                $('#product-name').val(productName);
+                $('#product-price').val(productPrice);
+                $('#product-description').val(productDescription);
+                $('#product-additional-information').val(productAddtionalInformation);
+                $('#product-cod').val(productCod);
+                $('#product-length').val(productLength);
+                $('#product-width').val(productWidth);
+                $('#product-depth').val(productDepth);
+                $('#product-weight').val(productWeight);
+                $('#product-featured').val(productFeatured);
+                $('#product-notes').val(productNotes);
+
+                $("#product-category option").filter(function() {
+				    return this.text == productCategory; 
+				}).attr('selected', true);
+				$.ajax({
+			        url: rootUrl + "/category/"+$("#product-category").val(),
+			        dataType: "json",
+			        success : function(result) {
+			        	var categoryId;
+			            var categoryName = "";
+			            var data = result['subcategories'];
+			            var html = "<option> --SELECT OPTION-- </option>";
+			            $.each(data, function (key, value) {
+			            	categoryId = data[key]['id'];
+			                categoryName = data[key]['name'];
+			                html+='<option value="'+categoryId+'">'+categoryName+'</option>';
+			            });
+			            $("#product-sub-category").html(html);
+			            $("#product-sub-category option").filter(function() {
+						    return this.text == productSubCategory; 
+						}).attr('selected', true)
+			        },
+			        error: function(xhr, resp, text) {
+			            console.log(xhr, resp, text);
+			        }
+	
+				});
+				$("#product-material option").filter(function() {
+				    return this.text == productMaterial; 
+				}).attr('selected', true);
+				
+                var images = data['images'];
+                $i = 1;
+                $.each(images, function (key, value) {
+
+                    var selector = ".product-image-"+$i;
+                    $(selector).attr('src', rootUrl+value);
+                    $i++;
+                });
+                
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+            }
+        })
 
 	function readURL(input, selector) {
 

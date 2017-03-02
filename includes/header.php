@@ -309,6 +309,12 @@
                                 <li>
                                     <a href="addnewcategory.php">Add New Category</a>
                                 </li>
+                                <li>
+                                    <a href="showsubcategories.php">Show SubCategories</a>
+                                </li>
+                                <li>
+                                    <a href="addnewsubcategory.php">Add New SubCategory</a>
+                                </li>
                                 
                             </ul>
                             <!-- /.nav-second-level -->
@@ -342,13 +348,39 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                       
+                        <li >
+                            <a href="#"><i class="fa fa-certificate fa-fw"></i> Manage Font's<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showfonts.php">Show Font's</a>
+                                </li>
+                                <li>
+                                    <a href="addnewfont.php">Add New Font</a>
+                                </li>
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li >
+                            <a href="#"><i class="fa fa-certificate fa-fw"></i> Manage Pattern's<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showapatterns.php">Show Pattern's</a>
+                                </li>
+                                <li>
+                                    <a href="addnewpattern.php">Add New Pattern</a>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
                         <li>
                             <a href="markproductrelated.php"><i class="fa fa-sitemap fa-fw"></i> Mark Products Related</a>
                         </li>
                         
 
                         <li >
-                            <a href="customerinformation.php"><i class="fa fa-users fa-fw"></i> Customer Information</span></a>
+                            <a href="customerinformation.php"><i class="fa fa-users fa-fw"></i> Customer Information</a>
                             
                             <!-- /.nav-second-level -->
                         </li>
@@ -357,7 +389,7 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="showblogs.php">Show Blogs</a>
-                                </li>
+                      .clear();          </li>
                                 <li>
                                     <a href="addnewblog.php">Write New Blog</a>
                                 </li>
@@ -365,6 +397,30 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
+                         <li >
+                            <a href="requesteddesign.php"><i class="fa fa-comments fa-fw"></i> Requested Design</a>
+                            
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li >
+                            <a href="contactinformation.php"><i class="fa fa-comments fa-fw"></i> Contact Us Information</a>
+                            
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li >
+                            <a href="#"><i class="fa fa-pencil fa-fw"></i> Manage Testimonials<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showtestimonials.php">Show Testimonials</a>
+                                </li>
+                                <li>
+                                    <a href="addnewtestimonial.php">Add New Testimonial</a>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+
                     </ul>
                 </div>
                 <!-- /.sidebar-collapse -->

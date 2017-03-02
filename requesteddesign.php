@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" >
 
 <head>
 
@@ -58,26 +58,29 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Product Categories</h3>
+                        <h3 class="page-header">Request Data</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                    <div class="col-lg-12">
+                        
+
                         <div class="panel panel-default">
                             
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name Of Material</th>
-                                            <th>Description</th>
-                                            <th>Update</th>
-                                            <th>Delete</th>
+                                        
+                                            <th>Name Of Requestor</th>
+                                            <th>Contact Number</th>
+                                            <th>Email</th>
+                                            <th>View Request</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="materials-table-data">
-                                        
+                                    <tbody id="request-table-data">
+                                         
                                        
                                     </tbody>
                                 </table>
@@ -124,50 +127,32 @@
         var rootUrl = 'http://localhost/work/api/public/';
         $.ajax({
             
-            url: rootUrl + "materials",
+            url: rootUrl + "requesteddesign",
             dataType: "json",
             success : function(result) {
                 var html = "";
-                var materialId = "";
-                var materialName ="";
-                var materialDescription = "";
+                var requestId = "";
+                var requestorName ="";
+                var requestorEmail = "";
+                var requestorContactNumber = "";
+                var requestorRequirements = "";
                 //console.log(result);
-                var data = result['materials'];
+                var data = result['designs'];
                 
                 $.each(data, function (key, value) {
-                
-                    materialId = data[key]['id'];
-                    materialName = data[key]['name'];
-                    materialDescription = data[key]['description'];
-                    
-                    html += '<tr class="odd "><td>'+ materialName +'</td><td>'+ materialDescription+'</td><td class="center"><a href="updatematerial.php?id='+ materialId +'">Update Material</a></td><td class="center"><a class="delete-material" href="#" data-id="'+ materialId +'">Delete</a></td></tr>'; 
+                    requestId = data[key]['id'];
+                    requestorName = data[key]['name'];
+                    requestorEmail = data[key]['email'];
+                    requestorContactNumber = data[key]['contact_number'];
+                    requestorRequirements = data[key]['requirements'];
+                   
+                    html += '<tr class="odd "><td>'+ requestorName +'</td><td>'+ requestorContactNumber+'</td><td>'+ requestorEmail+'</td><td class="center"><a href="viewrequestdetails.php?id='+ requestId +'">View Request</a></td>'; 
                 });
-                $("#materials-table-data").html(html);
+                $("#request-table-data").html(html);
                 
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
-
-                $(".delete-material").click(function(e){
-                        e.preventDefault();
-                        var link = $(this);
-                        var id = link.data("id");
-                        if (confirm('Are you sure?')) {
-                            $.ajax({
-                                url: rootUrl + "material/delete/"+id,
-                                dataType: "json",
-                                success: function(result){
-                                    
-                                    location.reload(true);
-                                },
-                                error: function(xhr, resp, text) {
-                                    console.log(xhr, resp, text);
-                                }
-                            });
-
-                        }
-                        
-                    })
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);

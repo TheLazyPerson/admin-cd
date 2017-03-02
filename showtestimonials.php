@@ -58,7 +58,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Product Categories</h3>
+                        <h3 class="page-header">Testimonials</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -70,13 +70,15 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name Of Material</th>
-                                            <th>Description</th>
+                                            <th>Name Of Author</th>
+                                            <th>Message</th>
+                                            <th>Place</th>
+                                            <th>Date</th>
                                             <th>Update</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="materials-table-data">
+                                    <tbody id="testimonials-table-data">
                                         
                                        
                                     </tbody>
@@ -122,39 +124,44 @@
     $(document).ready(function() {
         
         var rootUrl = 'http://localhost/work/api/public/';
-        $.ajax({
-            
-            url: rootUrl + "materials",
-            dataType: "json",
-            success : function(result) {
-                var html = "";
-                var materialId = "";
-                var materialName ="";
-                var materialDescription = "";
-                //console.log(result);
-                var data = result['materials'];
-                
-                $.each(data, function (key, value) {
-                
-                    materialId = data[key]['id'];
-                    materialName = data[key]['name'];
-                    materialDescription = data[key]['description'];
-                    
-                    html += '<tr class="odd "><td>'+ materialName +'</td><td>'+ materialDescription+'</td><td class="center"><a href="updatematerial.php?id='+ materialId +'">Update Material</a></td><td class="center"><a class="delete-material" href="#" data-id="'+ materialId +'">Delete</a></td></tr>'; 
-                });
-                $("#materials-table-data").html(html);
-                
-                $('#dataTables-example').DataTable({
-                    responsive: true
-                });
 
-                $(".delete-material").click(function(e){
+
+        function loadTestimonials(){
+            $.ajax({
+            
+                url: rootUrl + "testimonials",
+                dataType: "json",
+                success : function(result) {
+                    var html = "";
+                    var testimonialId = "";
+                    var testimonialMessage ="";
+                    var testimonialAuthor = "";
+                    var testimonialPlace = "";
+                    var testimonialDate = "";
+                    //console.log(result);
+                    var data = result['testimonials'];
+                    
+                    $.each(data, function (key, value) {
+                    
+                        testimonialId = data[key]['id'];
+                        testimonialMessage = data[key]['message'];
+                        testimonialAuthor = data[key]['author'];
+                        testimonialPlace = data[key]['place'];
+                        testimonialDate = data[key]['date'];
+                        
+                        html += '<tr class="odd "><td>'+ testimonialAuthor +'</td><td>'+ testimonialMessage+'</td><td>'+ testimonialPlace+'</td><td>'+ testimonialDate+'</td><td class="center"><a href="updatetestimonial.php?id='+ testimonialId +'">Update</a></td><td class="center"><a href="#" class="delete-testimonial" data-id="'+testimonialId+'">Delete</a></td></tr>'; 
+                    });
+                    $("#testimonials-table-data").html(html);
+                    table = $('#dataTables-example').DataTable({
+                        responsive: true
+                    });
+                    $(".delete-testimonial").click(function(e){
                         e.preventDefault();
                         var link = $(this);
                         var id = link.data("id");
                         if (confirm('Are you sure?')) {
                             $.ajax({
-                                url: rootUrl + "material/delete/"+id,
+                                url: rootUrl + "testimonials/delete/"+id,
                                 dataType: "json",
                                 success: function(result){
                                     
@@ -168,11 +175,15 @@
                         }
                         
                     })
-            },
-            error: function(xhr, resp, text) {
-                console.log(xhr, resp, text);
-            }
-        })
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            })
+        }
+        loadTestimonials();
+
+
     });
     </script>
 

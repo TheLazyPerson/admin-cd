@@ -46,7 +46,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Add New Product</h3>
+                        <h3 class="page-header">Update Product</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -91,10 +91,6 @@
                                             <input type="number" class="form-control" placeholder="Length" name="length" id="product-length" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Height</label>
-                                            <input type="number" class="form-control" placeholder="Height" name="height" id="product-height" required>
-                                        </div>
-                                        <div class="form-group">
                                             <label>Depth</label>
                                             <input type="number" class="form-control" placeholder="Depth" name="depth" id="product-depth" required>
                                         </div>
@@ -137,7 +133,6 @@
                                         </div>
                                        
                                         <button type="submit" class="btn btn-primary">Submit </button>
-                                        <button type="reset" class="btn btn-warning">Reset Button</button>
                                     
                                 </div>
                                 <!-- /.col-lg-6 (nested) -->
@@ -219,7 +214,7 @@
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
 
-    <script src="js/addnewproduct.js"></script>
+    <script src="js/updateproduct.js"></script>
 
 </body>
 

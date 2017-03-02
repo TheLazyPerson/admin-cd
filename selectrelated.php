@@ -59,7 +59,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Mark Related Product</h3>
+                        <h3 class="page-header">Select Products</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -90,6 +90,11 @@
                             </div>
                             <!-- /.panel -->
                         </div>
+                        <div class="col-lg-12">
+                             <button class="btn btn-primary" id="add-all-related-products">Submit </button>
+                            <button type="reset" class="btn btn-warning">Remove All Selected Products</button>
+                        </div>
+                       
                 </div>
                 <!-- /.row -->
             </div>
@@ -123,14 +128,23 @@
     $(document).ready(function(e) {
         
         var rootUrl = 'http://localhost/work/api/public/';
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
 
-        $("form").submit(function(e){
-            e.preventDefault();
-            var selected = $("#showcase-block-image").val();
-            
-            $(".block-image").attr('src','../api/public/images/showcase/block'+selected+".jpg");
-            $("#block-number").text(selected);
-        });
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
+        id = getUrlParameter('id');
+        selected = [];
+       
          $.ajax({
             
             url: rootUrl + "products/nameplate",
@@ -148,22 +162,41 @@
                 var data = result['products'];
                 
                 $.each(data, function (key, value) {
-                
+                    
                     productId = data[key]['id'];
-                    productName = data[key]['name'];
-                    productPrice = data[key]['price'];
-                    productMaterial = data[key]['material'];
-                    productCod = data[key]['cod'];
-                    productStatus = data[key]['status'];
-                    if (productMaterial == 1) { productMaterial = "Yes" }
-                    if (productMaterial == 0) { productMaterial = "No" }
-                    if (productCod == 1) { productCod = "Yes" }
-                    if (productCod == 0) { productCod = "No" }
-                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="selectrelated.php?id='+ productId +'">Select Product</a></td></tr>'; 
+                    if (id != productId) {
+                        productName = data[key]['name'];
+                        productPrice = data[key]['price'];
+                        productMaterial = data[key]['material'];
+                        productCod = data[key]['cod'];
+                        productStatus = data[key]['status'];
+                        if (productMaterial == 1) { productMaterial = "Yes" }
+                        if (productMaterial == 0) { productMaterial = "No" }
+                        if (productCod == 1) { productCod = "Yes" }
+                        if (productCod == 0) { productCod = "No" }
+                        html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#" id="'+ productId +'" class="select-product">Select Product</a></td></tr>'; 
+                    }
+                    
                     
                 });
 
+                
                 $("#products-table-data").html(html);
+                $(".select-product").click(function(e){
+                    e.preventDefault();
+                    var id = this.id;
+                    if ($(this).text() == "Select Product") {
+                        $(this).text("Remove Product");
+                        $(this).addClass("selected");
+                        selected.push(id);
+                    }else{
+                        $(this).text("Select Product");
+                        selected = jQuery.grep(selected, function(value) {
+                            return value != id;
+                        });
+                        $(this).removeClass("selected");
+                    }
+                });
                 $('#dataTables-example').DataTable({
                         responsive: true
                     });
@@ -172,7 +205,29 @@
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);
             }
-        })
+        });
+
+        $("#add-all-related-products").click(function(e){
+            var productsData = new FormData();
+            productsData.append("product_id", id);
+            productsData.append("related_products", JSON.stringify(selected));
+
+             $.ajax({
+                
+                url: rootUrl + "/product/related",
+                type: "POST",
+                dataType: "json",
+                data : productsData,
+                contentType: false,
+                processData: false,
+                success : function(result) {
+                    if (result["success"]) {
+                        alert("related products added");
+                    } 
+                            
+                }
+            }); 
+        });
     });
     </script>
    

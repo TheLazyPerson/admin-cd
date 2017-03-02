@@ -68,8 +68,8 @@
                                             <th>Price</th>
                                             <th>Material Used</th>
                                             <th>Cash On Delivery</th>
-                                            <th>Visible</th>
                                             <th>Details</th>
+                                            <th>Update</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
@@ -139,12 +139,33 @@
                     productStatus = data[key]['status'];
                     if (productMaterial == 1) { productMaterial = "Yes" }
                     if (productCod == 1) { productCod = "Yes" }
-                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#">Delete</a></td></tr>'; 
+                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productCod  +'</td><td class="center"><a href="viewnormalproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="updatenormalproduct.php?id='+ productId +'">Update</a></td><td class="center"><a href="#" class="delete-product" data-id="'+productId+'">Delete</a></td></tr>'; 
                 });
                 $("#featured-table-data").html(html);
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
+                $(".delete-product").click(function(e){
+                        e.preventDefault();
+                        var link = $(this);
+                        var id = link.data("id");
+                        if (confirm('Are you sure?')) {
+                            $.ajax({
+                                url: rootUrl + "products/normal/delete/"+id,
+                                dataType: "json",
+                                success: function(result){
+                                    
+                                    location.reload(true);
+                                },
+                                error: function(xhr, resp, text) {
+                                    console.log(xhr, resp, text);
+                                }
+                            });
+
+                        }
+                        
+                    })
+                
                 
             },
             error: function(xhr, resp, text) {

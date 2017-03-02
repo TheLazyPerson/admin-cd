@@ -37,6 +37,7 @@
     <div id="wrapper">
 
         <?php 
+
             require_once("includes/header.php");
         ?>
         <!-- Page Content -->
@@ -54,7 +55,7 @@
                           
                             <div class="panel-body">
                                 <div class="row">
-                                    <div class="col-lg-6 view-normal-product">
+                                    <div class="col-lg-6 view-product">
                                         
                                             <div class="form-group">
                                                 <p>Product Name</p>
@@ -75,31 +76,37 @@
                                                 <p><strong class="product-additional-information"></strong></p>
                                             </div>
                                             <div class="form-group">
-                                                <p>Notes</p>
-                                                <p><strong class="product-notes"></strong></p>
+                                                <p>Maximum Characters</p>
+                                                <p><strong class="product-max-characters"></strong></p>
                                             </div>
+                                            <div class="form-group">
+                                                <p>Price After Maximum Characters</p>
+                                                <p><strong class="product-price-per-character"></strong></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p>Product Category</p>
+                                                <p><strong class="product-category"></strong></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p>Letter Type</p>
+                                                <p><strong class="product-letter-type"></strong></p>
+                                            </div>
+                                            <div class="form-group">
+                                                <p>Fitting Place</p>
+                                                <p><strong class="product-fitting-place"></strong></p>
+                                            </div>
+
                                             <div class="form-group">
                                                 <p>Length</p>
                                                 <p><strong class="product-length"></strong></p>
                                             </div>
-                                            
                                             <div class="form-group">
-                                                <p>Depth</p>
-                                                <p><strong class="product-depth"></strong></p>
+                                                <p>Height</p>
+                                                <p><strong class="product-height"></strong></p>
                                             </div>
                                             <div class="form-group">
                                                 <p>Weight</p>
                                                 <p><strong class="product-weight"></strong></p>
-                                            </div>
-                                            <div class="form-group">
-                                                <p>Category</p>
-                                                <p><strong class="product-category"></strong></p>
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                                <p>SubCategory</p>
-                                                <p><strong class="product-sub-category"></strong></p>
-                                                
                                             </div>
                                             <div class="form-group">
                                                 <p>Cash On Delivery</p>
@@ -112,8 +119,8 @@
                                                
                                             </div>
                                             <div class="form-group">
-                                                <p>Featured Product</p>
-                                                <p><strong class="product-featured"></strong></p>
+                                                <p>Trending Product</p>
+                                                <p><strong class="product-trending"></strong></p>
                                                 
                                             </div>
                                            
@@ -222,48 +229,49 @@
         var rootUrl = 'http://localhost/work/api/public/';
         $.ajax({
             
-            url: rootUrl + "productnormal/" + id,
+            url: rootUrl + "product/nameplate/" + id,
             dataType: "json",
             success : function(result) {
                 
                 var data = result['product'];
 
+
                 productId = data['id'];
                 productName = data['name'];
-                productPrice = data['price'];
                 productDescription = data['description'];
-                productAddtionalInformation = data['additionalInformation'];
+                productAddtionalInformation = data['addtional_information'];
+                productPriceAfterMaxCharacters = data['per_char_charge'];
+                productMaxCharacter = data['max_characters'];
                 productMaterial = data['material'];
-                productLength = data['length'];
-                productWidth = data['width'];
-                productDepth = data['depth'];
-                productWeight = data['weight'];
-                productSubCategory = data['subcategory'];
                 productCategory = data['category'];
-                productNotes = data['notes'];
-
                 productCod = data['cod'];
-                productFeatured = data['featured'];
-                productStatus = data['status'];
-                if (productMaterial == 1) { productMaterial = "Yes" }
+                productLetterType = data['letter_type'];
+                productFittingPlace = data['fitting_place'];
+                productLength = data['length'];
+                productHeight = data['height'];
+                productWeight = data['weight'];
+                productPrice = data['price'];
+                productTrending = data['trending'];
                 if (productCod == 1) { productCod = "Yes" }
-                if (productFeatured == 1) { productFeatured = "Yes" }
-                    
-                
-                $('.view-normal-product .product-name').text(productName);
-                $('.view-normal-product .product-price').text(productPrice);
-                $('.view-normal-product .product-description').text(productDescription);
-                $('.view-normal-product .product-additional-information').text(productAddtionalInformation);
-                $('.view-normal-product .product-cod').text(productCod);
-                $('.view-normal-product .product-material').text(productMaterial);
-                $('.view-normal-product .product-length').text(productLength);
-                $('.view-normal-product .product-width').text(productWidth);
-                $('.view-normal-product .product-depth').text(productDepth);
-                $('.view-normal-product .product-weight').text(productWeight);
-                $('.view-normal-product .product-sub-category').text(productSubCategory); 
-                $('.view-normal-product .product-category').text(productCategory);
-                $('.view-normal-product .product-featured').text(productFeatured);
-                $('.view-normal-product .product-notes').text(productNotes);
+                if (productCod == 0) { productCod = "No" }    
+                if (productTrending == 1) { productTrending = "Yes" }    
+                if (productTrending == 0) { productTrending = "No" }   
+            
+                $('.view-product .product-name').text(productName);
+                $('.view-product .product-description').text(productDescription);
+                $('.view-product .product-additional-information').text(productAddtionalInformation);
+                $('.view-product .product-price-per-character').text(productPriceAfterMaxCharacters);
+                $('.view-product .product-max-characters').text(productMaxCharacter);
+                $('.view-product .product-material').text(productMaterial);
+                $('.view-product .product-category').text(productCategory);
+                $('.view-product .product-cod').text(productCod);
+                $('.view-product .product-letter-type').text(productLetterType);
+                $('.view-product .product-fitting-place').text(productFittingPlace);
+                $('.view-product .product-length').text(productLength);
+                $('.view-product .product-height').text(productHeight);
+                $('.view-product .product-weight').text(productWeight);
+                $('.view-product .product-price').text(productPrice);
+                $('.view-product .product-trending').text(productTrending);
 
                 var images = data['images'];
                 $i = 1;

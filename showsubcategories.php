@@ -70,13 +70,14 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name Of Material</th>
+                                            <th>Name Of Sub Category</th>
                                             <th>Description</th>
+                                            <th>Category</th>
                                             <th>Update</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="materials-table-data">
+                                    <tbody id="categories-table-data">
                                         
                                        
                                     </tbody>
@@ -124,51 +125,45 @@
         var rootUrl = 'http://localhost/work/api/public/';
         $.ajax({
             
-            url: rootUrl + "materials",
+            url: rootUrl + "subcategories",
             dataType: "json",
             success : function(result) {
                 var html = "";
-                var materialId = "";
-                var materialName ="";
-                var materialDescription = "";
-                //console.log(result);
-                var data = result['materials'];
-                
+                var subcategoryId = "";
+                var subcategoryName ="";
+                var subcategoryDescription = "";
+                var categoryName = "";
+                var data = result['subcategories'];
                 $.each(data, function (key, value) {
-                
-                    materialId = data[key]['id'];
-                    materialName = data[key]['name'];
-                    materialDescription = data[key]['description'];
+                    subcategoryId = data[key]['id'];
+                    subcategoryName = data[key]['name'];
+                    subcategoryDescription = data[key]['description'];
+                    categoryName = data[key]['parent'];
                     
-                    html += '<tr class="odd "><td>'+ materialName +'</td><td>'+ materialDescription+'</td><td class="center"><a href="updatematerial.php?id='+ materialId +'">Update Material</a></td><td class="center"><a class="delete-material" href="#" data-id="'+ materialId +'">Delete</a></td></tr>'; 
+                    html += '<tr class="odd "><td>'+ subcategoryName +'</td><td>'+ subcategoryDescription+'</td><td>'+ categoryName+'</td><td class="center"><a href="updatecategory.php?id='+ subcategoryId +'">Update Category</a></td><td class="center"><a href="#" class="delete-sub-category" data-id="'+ subcategoryId +'">Delete</a></td></tr>'; 
                 });
-                $("#materials-table-data").html(html);
-                
-                $('#dataTables-example').DataTable({
-                    responsive: true
-                });
+                $("#categories-table-data").html(html);
+                $(".delete-sub-category").click(function(e){
+                    e.preventDefault();
+                    var link = $(this);
+                    var id = link.data("id");
+                    if (confirm('Are you sure?')) {
+                        $.ajax({
+                            url: rootUrl + "subcategory/delete/"+id,
+                            dataType: "json",
+                            success: function(result){
+                                
+                                location.reload(true);
+                            },
+                            error: function(xhr, resp, text) {
+                                console.log(xhr, resp, text);
+                            }
+                        });
 
-                $(".delete-material").click(function(e){
-                        e.preventDefault();
-                        var link = $(this);
-                        var id = link.data("id");
-                        if (confirm('Are you sure?')) {
-                            $.ajax({
-                                url: rootUrl + "material/delete/"+id,
-                                dataType: "json",
-                                success: function(result){
-                                    
-                                    location.reload(true);
-                                },
-                                error: function(xhr, resp, text) {
-                                    console.log(xhr, resp, text);
-                                }
-                            });
-
-                        }
-                        
-                    })
-            },
+                    }
+            
+                    });
+                },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);
             }

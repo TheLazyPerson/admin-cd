@@ -122,36 +122,61 @@
     $(document).ready(function() {
         
         var rootUrl = 'http://localhost/work/api/public/';
-        $.ajax({
+        function loadCategories(){
+            $.ajax({
             
-            url: rootUrl + "categories",
-            dataType: "json",
-            success : function(result) {
-                var html = "";
-                var categoryId = "";
-                var categoryName ="";
-                var categoryDescription = "";
-                //console.log(result);
-                var data = result['categories'];
-                
-                $.each(data, function (key, value) {
-                
-                    categoryId = data[key]['id'];
-                    categoryName = data[key]['name'];
-                    categoryDescription = data[key]['description'];
+                url: rootUrl + "categories",
+                dataType: "json",
+                success : function(result) {
+                    var html = "";
+                    var categoryId = "";
+                    var categoryName ="";
+                    var categoryDescription = "";
+                    //console.log(result);
+                    var data = result['categories'];
                     
-                    html += '<tr class="odd "><td>'+ categoryName +'</td><td>'+ categoryDescription+'</td><td class="center"><a href="updatecategory.php?id='+ categoryId +'">Update Category</a></td><td class="center"><a href="deletecategory.php?id='+ categoryId +'">Delete</a></td></tr>'; 
-                });
-                $("#categories-table-data").html(html);
-                
-                $('#dataTables-example').DataTable({
-                    responsive: true
-                });
-            },
-            error: function(xhr, resp, text) {
-                console.log(xhr, resp, text);
-            }
-        })
+                    $.each(data, function (key, value) {
+                    
+                        categoryId = data[key]['id'];
+                        categoryName = data[key]['name'];
+                        categoryDescription = data[key]['description'];
+                        
+                        html += '<tr class="odd "><td>'+ categoryName +'</td><td>'+ categoryDescription+'</td><td class="center"><a href="updatecategory.php?id='+ categoryId +'">Update Category</a></td><td class="center"><a href="#" class="delete-category" data-id="'+categoryId+'">Delete</a></td></tr>'; 
+                    });
+                    $("#categories-table-data").html(html);
+                    
+                    $('#dataTables-example').DataTable({
+                        responsive: true
+                    });
+                    $(".delete-category").click(function(e){
+                        e.preventDefault();
+                        var link = $(this);
+                        var id = link.data("id");
+                        if (confirm('Are you sure?')) {
+                            $.ajax({
+                                url: rootUrl + "category/delete/"+id,
+                                dataType: "json",
+                                success: function(result){
+                                    
+                                    location.reload(true);
+                                },
+                                error: function(xhr, resp, text) {
+                                    console.log(xhr, resp, text);
+                                }
+                            });
+
+                        }
+                        
+                    });
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            })
+        }
+        loadCategories();
+
+        
     });
     </script>
 

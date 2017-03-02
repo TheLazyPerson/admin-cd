@@ -30,11 +30,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.0/angular.min.js"></script>
-    <script type="text/javascript">
-        
-
-    </script>
+    
 </head>
 
 <body>
@@ -55,72 +51,79 @@
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
+                <form role="form" name="recent-images-insert" id="insert-recent-images">
                     <div class="col-lg-12" style="padding-bottom: 20px;"> 
-                        <div class="col-lg-6">
-                            <label>Product Image 1</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-1">
-                            <br>
-                            <img class="img-responsive product-image-1" src="../api/public/images/recent/showcase1.jpg" />
 
+                        
+                        <div class="col-lg-6">
+                            <label>Recent Image 1</label>
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-1">
+                            <br>
+                            <img class="img-responsive recent-image-1" src="" />
                         </div>
                         <div class="col-lg-6">
-                            <label>Product Image 2</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-2">
+                            <label>Recent Image 2</label>
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-2">
                             <br>
-                            <img class="img-responsive product-image-2" src="../api/public/images/recent/showcase2.jpg" />
+                            <img class="img-responsive recent-image-2" src="" />
                         </div>
                     </div> 
                     
                     <div class="col-lg-12" style="padding-bottom: 20px;"> 
                         <div class="col-lg-6">
-                            <label>Product Image 3</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-1">
+                            <label>Recent Image 3</label>
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-3">
                             <br>
-                            <img class="img-responsive product-image-1" src="../api/public/images/recent/showcase3.jpg" />
+                            <img class="img-responsive recent-image-3" src="" />
 
                         </div>
                         <div class="col-lg-6">
-                            <label>Product Image 4</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-2">
+                            <label>Recent Image 4</label>
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-4">
                             <br>
-                            <img class="img-responsive product-image-2" src="../api/public/images/recent/showcase4.jpg" />
+                            <img class="img-responsive recent-image-4" src="" />
                         </div>
                     </div>
                     
                     <div class="col-lg-12" style="padding-bottom: 20px;"> 
                         <div class="col-lg-6">
-                            <label>Product Image 5</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-1">
+                            <label>Recent Image 5</label>
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-5">
                             <br>
-                            <img class="img-responsive product-image-1" src="../api/public/images/recent/showcase5.jpg" />
+                            <img class="img-responsive recent-image-5" src="" />
 
                         </div>
                         <div class="col-lg-6">
                             <label>Product Image 6</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-1">
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-6">
                             <br>
-                            <img class="img-responsive product-image-1" src="../api/public/images/recent/showcase6.jpg" />
+                            <img class="img-responsive recent-image-6" src="" />
 
                         </div>
                         
                     </div>
                     <div class="col-lg-12" style="padding-bottom: 20px;"> 
                         <div class="col-lg-6">
-                            <label>Product Image 7</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-1">
+                            <label>Recent Image 7</label>
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-7">
                             <br>
-                            <img class="img-responsive product-image-1" src="../api/public/images/recent/showcase7.jpg" />
+                            <img class="img-responsive recent-image-7" src="" />
 
                         </div>
                         <div class="col-lg-6">
-                            <label>Product Image 8</label>
-                            <input type="file" name="productimage" class="product-image" id="product-image-1">
+                            <label>Recent Image 8</label>
+                            <input type="file" name="recentimage" class="recent-image" id="recent-image-8">
                             <br>
-                            <img class="img-responsive product-image-1" src="../api/public/images/recent/showcase8.jpg" />
+                            <img class="img-responsive recent-image-8" src="" />
 
                         </div>
-                        
-                    </div>
+                    
+                    </div>    
+                    <div class="col-lg-12" style="padding-bottom: 20px;">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="reset" class="btn btn-warning">Reset Button</button>
+                    </div>                
+                    </form>
                 </div>
                 <!-- /.row -->
             </div>
@@ -147,23 +150,144 @@
 
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
-    $(document).ready(function() {
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
-        var rootUrl = 'http://localhost/work/api/public/';
-        $.ajax({
-            
-            url: rootUrl + "products/normal",
+   $(document).ready(function (e) {
+    var rootUrl = 'http://localhost/work/api/public/';
+    var imageUrl = 'http://localhost/work/api/public/';
+     $.ajax({
+            url: rootUrl + "ourrecentwork",
             dataType: "json",
             success : function(result) {
-              
+                var imagePath = "";
+                var imageNumber = "";
+                var data = result['ourrecentwork'];
+                var selector = ".recent-image-"
+                $.each(data, function (key, value) {
+                    imagePath = data[key]['image_path'];
+                    imageNumber = data[key]['image_number'];
+                    $(selector+imageNumber).attr('src', imageUrl+imagePath);
+                });
+                
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);
             }
-        })
+        });
+
+    function readURL(input, selector) {
+
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $(selector).attr('src', e.target.result);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#recent-image-1").change(function(){
+        readURL(this,'.recent-image-1');
     });
+    $("#recent-image-2").change(function(){
+        readURL(this,'.recent-image-2');
+    });
+    $("#recent-image-3").change(function(){
+        readURL(this,'.recent-image-3');
+    });
+    $("#recent-image-4").change(function(){
+        readURL(this,'.recent-image-4');
+    });
+    $("#recent-image-5").change(function(){
+        readURL(this,'.recent-image-5');
+    });
+    $("#recent-image-6").change(function(){
+        readURL(this,'.recent-image-6');
+    });
+    $("#recent-image-7").change(function(){
+        readURL(this,'.recent-image-7');
+    });
+    $("#recent-image-8").change(function(){
+        readURL(this,'.recent-image-8');
+    });
+
+    //on submit
+    $( "form" ).submit(function( e ) {
+ 
+        //validate images
+        /*TODO*/
+        e.preventDefault();
+     
+
+        //upload images first
+        var imageData = new FormData();
+        
+
+        $.each($('#recent-image-1')[0].files, function (i, file)
+        {
+            var fname = "1";
+            imageData.append(fname, file);
+        });
+
+        $.each($('#recent-image-2')[0].files, function (i, file)
+        {
+            var fname = "2";
+            imageData.append(fname, file);
+        });
+        $.each($('#recent-image-3')[0].files, function (i, file)
+        {
+            var fname = "3";
+            imageData.append(fname, file);
+        });
+        $.each($('#recent-image-4')[0].files, function (i, file)
+        {
+            var fname = "4";
+            imageData.append(fname, file);
+        });
+        $.each($('#recent-image-5')[0].files, function (i, file)
+        {
+            var fname = "5";
+            imageData.append(fname, file);
+        });
+         $.each($('#recent-image-6')[0].files, function (i, file)
+        {
+            var fname = "6";
+            imageData.append(fname, file);
+        });
+        $.each($('#recent-image-7')[0].files, function (i, file)
+        {
+            var fname = "7";
+            imageData.append(fname, file);
+        });
+        $.each($('#recent-image-8')[0].files, function (i, file)
+        {
+            var fname = "8";
+            imageData.append(fname, file);
+        });
+        //imageData.append("product", JSON.stringify(data));
+        console.log(imageData);
+        //make the actual request
+        $.ajax({
+            type : "POST",
+            url: rootUrl + "ourrecentwork",
+            //dataType : "json",
+            data : imageData,
+            contentType: false,
+            processData: false,
+            success : function(result) {
+                if (result["success"]) {
+                    alert("images changed");
+                }
+            },
+            error: function(xhr, resp, text) {
+                console.log(xhr, resp, text);
+            }
+        });
+    });
+
+});
+    </script>
+
     </script>
 
 

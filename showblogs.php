@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" >
 
 <head>
 
@@ -58,26 +58,31 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Product Categories</h3>
+                        <h3 class="page-header">Blogs</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
                    <div class="col-lg-12">
+                        
+
                         <div class="panel panel-default">
                             
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name Of Material</th>
-                                            <th>Description</th>
+                                        
+                                            <th>Title Of Blog</th>
+                                            <th>Short Description</th>
+                                            <th>Visible</th>
                                             <th>Update</th>
+                                            <th>Preview</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="materials-table-data">
-                                        
+                                    <tbody id="blog-table-data">
+                                         
                                        
                                     </tbody>
                                 </table>
@@ -124,37 +129,46 @@
         var rootUrl = 'http://localhost/work/api/public/';
         $.ajax({
             
-            url: rootUrl + "materials",
+            url: rootUrl + "blogs",
             dataType: "json",
             success : function(result) {
                 var html = "";
-                var materialId = "";
-                var materialName ="";
-                var materialDescription = "";
+                var blogId = "";
+                var blogTitle ="";
+                var blogShortDescription = "";
+                var blogContent ="";
+                var blogImagePath = "";
+                var blogVisible ="";
                 //console.log(result);
-                var data = result['materials'];
+                var data = result['blogs'];
                 
                 $.each(data, function (key, value) {
-                
-                    materialId = data[key]['id'];
-                    materialName = data[key]['name'];
-                    materialDescription = data[key]['description'];
-                    
-                    html += '<tr class="odd "><td>'+ materialName +'</td><td>'+ materialDescription+'</td><td class="center"><a href="updatematerial.php?id='+ materialId +'">Update Material</a></td><td class="center"><a class="delete-material" href="#" data-id="'+ materialId +'">Delete</a></td></tr>'; 
+                    blogId = data[key]['id'];
+                    blogTitle = data[key]['title'];
+                    blogShortDescription = data[key]['short_description'];
+                    /*blogContent = data[key]['content'];
+                    blogImagePath = data[key]['image_path'];*/
+                    blogVisible = data[key]['visible'];
+                    if (blogVisible == '1') {
+                        blogVisible = 'Yes';
+                    }else if (blogVisible =='0') {
+                        blogVisible = 'No';
+                    }
+                    /*<td>'+ blogContent+'</td><td>'+ blogImagePath+'</td>*/
+                    html += '<tr class="odd "><td>'+ blogTitle +'</td><td>'+ blogShortDescription+'</td><td>'+ blogVisible+'</td><td class="center"><a href="updateblog.php?id='+ blogId +'">Update Blog</a></td><td class="center"><a href="viewblog.php?id='+ blogId +'">View Blog</a></td><td class="center"><a href="#" class="delete-blog" data-id="'+blogId+'">Delete</a></td></tr>'; 
                 });
-                $("#materials-table-data").html(html);
+                $("#blog-table-data").html(html);
                 
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
-
-                $(".delete-material").click(function(e){
+                 $(".delete-blog").click(function(e){
                         e.preventDefault();
                         var link = $(this);
                         var id = link.data("id");
                         if (confirm('Are you sure?')) {
                             $.ajax({
-                                url: rootUrl + "material/delete/"+id,
+                                url: rootUrl + "blog/delete/"+id,
                                 dataType: "json",
                                 success: function(result){
                                     

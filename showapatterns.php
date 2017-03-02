@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" ng-app>
+<html lang="en" >
 
 <head>
 
@@ -11,24 +11,11 @@
 
     <title>Creative Design </title>
 
-    <!-- Bootstrap Core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- MetisMenu CSS -->
     <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-
-       <!-- DataTables CSS -->
     <link href="vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
-
-    <!-- DataTables Responsive CSS -->
     <link href="vendor/datatables-responsive/dataTables.responsive.css" rel="stylesheet">
-
-
-    <!-- Custom CSS -->
     <link href="dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -58,36 +45,12 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Product Categories</h3>
+                        <h3 class="page-header">Pattern's</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
-                <div class="row">
-                   <div class="col-lg-12">
-                        <div class="panel panel-default">
-                            
-                            <div class="panel-body">
-                                <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                    <thead>
-                                        <tr>
-                                            <th>Name Of Material</th>
-                                            <th>Description</th>
-                                            <th>Update</th>
-                                            <th>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id="materials-table-data">
-                                        
-                                       
-                                    </tbody>
-                                </table>
-                                
-                            </div>
-                            <!-- /.panel-body -->
-                        </div>
-                        <!-- /.panel -->
-                    </div>
-                    <!-- /.col-lg-12 -->
+                <div class="row" id="pattern-data">
+                   
                     
                 </div>
                 <!-- /.row -->
@@ -122,52 +85,51 @@
     $(document).ready(function() {
         
         var rootUrl = 'http://localhost/work/api/public/';
+        var imageUrl = 'http://localhost/work/api/public/';
         $.ajax({
             
-            url: rootUrl + "materials",
+            url: rootUrl + "patterns",
             dataType: "json",
             success : function(result) {
                 var html = "";
-                var materialId = "";
-                var materialName ="";
-                var materialDescription = "";
+                var patternId = "";
+                var patternName ="";
+                var patternImagePath = "";
                 //console.log(result);
-                var data = result['materials'];
+                var data = result['patterns'];
                 
                 $.each(data, function (key, value) {
-                
-                    materialId = data[key]['id'];
-                    materialName = data[key]['name'];
-                    materialDescription = data[key]['description'];
-                    
-                    html += '<tr class="odd "><td>'+ materialName +'</td><td>'+ materialDescription+'</td><td class="center"><a href="updatematerial.php?id='+ materialId +'">Update Material</a></td><td class="center"><a class="delete-material" href="#" data-id="'+ materialId +'">Delete</a></td></tr>'; 
+                    patternId = data[key]['id'];
+                    patternName = data[key]['name'];
+                    patternImagePath = data[key]['pattern_path'];
+                   
+                    html += '<div class="col-xs-12 col-sm-6 col-md-3"><div class="thumbnail"><img src="'+ imageUrl+patternImagePath+'" class="img-responsive"  alt=""><div class="caption"><h4>'+patternName+'</h4><p><a href="updatepattern.php?id='+patternId+'" class="btn btn-info" role="button">Update</a> <a href="#" class="btn btn-default delete-pattern" role="button" data-id="'+patternId+'">Delete</a></p></div>  </div></div>'; 
                 });
-                $("#materials-table-data").html(html);
+                $("#pattern-data").html(html);
                 
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
+                $(".delete-pattern").click(function(e){
+                    e.preventDefault();
+                    var link = $(this);
+                    var id = link.data("id");
+                    if (confirm('Are you sure?')) {
+                        $.ajax({
+                            url: rootUrl + "pattern/delete/"+id,
+                            dataType: "json",
+                            success: function(result){
+                                
+                                location.reload(true);
+                            },
+                            error: function(xhr, resp, text) {
+                                console.log(xhr, resp, text);
+                            }
+                        });
 
-                $(".delete-material").click(function(e){
-                        e.preventDefault();
-                        var link = $(this);
-                        var id = link.data("id");
-                        if (confirm('Are you sure?')) {
-                            $.ajax({
-                                url: rootUrl + "material/delete/"+id,
-                                dataType: "json",
-                                success: function(result){
-                                    
-                                    location.reload(true);
-                                },
-                                error: function(xhr, resp, text) {
-                                    console.log(xhr, resp, text);
-                                }
-                            });
-
-                        }
-                        
-                    })
+                    }
+                    
+                });
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);

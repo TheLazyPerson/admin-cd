@@ -112,9 +112,7 @@
     <script>
     $(document).ready(function() {
         var rootUrl = 'http://localhost/work/api/public/';
-        $('#dataTables-example').DataTable({
-            responsive: true
-        });
+       
 
         $.ajax({
             
@@ -142,9 +140,33 @@
                     productStatus = data[key]['status'];
                     if (productMaterial == 1) { productMaterial = "Yes" }
                     if (productCod == 1) { productCod = "Yes" }
-                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#">Delete</a></td></tr>'; 
+                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#" class="delete-nameplate" data-id="'+productId+'">Delete</a></td></tr>'; 
                 });
-                $("#products-table-data").html(html);
+                 $('#dataTables-example').DataTable({
+            responsive: true
+        });
+        $("#products-table-data").html(html);
+        $(".delete-nameplate").click(function(e){
+                e.preventDefault();
+                var link = $(this);
+                var id = link.data("id");
+                if (confirm('Are you sure?')) {
+                    $.ajax({
+                        url: rootUrl + "product/nameplate/delete/"+id,
+                        dataType: "json",
+                        success: function(result){
+                            
+                            location.reload(true);
+                        },
+                        error: function(xhr, resp, text) {
+                            console.log(xhr, resp, text);
+                        }
+                    });
+
+                }
+                
+            })
+                
                 
             },
             error: function(xhr, resp, text) {
