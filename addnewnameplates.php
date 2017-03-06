@@ -193,8 +193,8 @@
                                             <select class="form-control"  id="product-letter-type" name="letterType" required>
                                                 <option> --SELECT OPTION-- </option>
                                                 <option value="Engraved">Engraved</option>
-                                                <option value="Pushed">Pushed</option>
-                                                <option value="Pushed">Pushed</option>
+                                                <option value="Etching">Etching</option>
+                                                <option value="Laser Cut">Laser Cut</option>
                                             </select>
                                         </div>
                                         <div class="form-group">

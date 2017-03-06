@@ -120,7 +120,7 @@
                     motifName = data[key]['name'];
                     motifDescription = data[key]['description'];
                     motifImagePath = data[key]['motif_path'];
-                    html += '<div class="col-xs-12 col-sm-6 col-md-3"><div class="thumbnail"><img src="'+ imageUrl+motifImagePath+'" class="img-responsive"  alt=""><div class="caption"><h4>'+motifName+'</h4><p>'+ motifDescription+'</p><p><a href="#" class="btn btn-info" role="button">Update </a> <a href="#" class="btn btn-default delete-motif" role="button" data-id="'+motifId+'">Delete</a></p></div>  </div></div>';
+                    html += '<div class="col-xs-12 col-sm-6 col-md-3"><div class="thumbnail"><img src="'+ imageUrl+motifImagePath+'" class="img-responsive"  alt=""><div class="caption"><h4>'+motifName+'</h4><p>'+ motifDescription+'</p><p><a href="updatemotif.php?id='+motifId+'" class="btn btn-info" role="button">Update </a> <a href="#" class="btn btn-default delete-motif" role="button" data-id="'+motifId+'">Delete</a></p></div>  </div></div>';
 
                    
                 });

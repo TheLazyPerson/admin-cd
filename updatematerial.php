@@ -42,7 +42,6 @@
     <div id="wrapper">
 
         <?php 
-
             require_once("includes/header.php");
         ?>
         <!-- Page Content -->
@@ -50,7 +49,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Update Category</h3>
+                        <h3 class="page-header">Update Material</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -60,22 +59,23 @@
                        
                         <div class="panel-body">
                             <div class="row">
-                                <form role="form" id="insert-category">
+                                <form role="form" id="insert-material">
                                     <div class="col-lg-6">
-                                        
                                         <div class="form-group">
-                                            <label>Category Name</label>
-                                            <input type="text" class="form-control" id="category-name" name="name" placeholder="Category Name" required>
+                                            <label>Material Name</label>
+                                            <input type="text" class="form-control" id="material-name" name="name" placeholder="Material Name" required>
                                         </div>
 
                                         <div class="form-group">
-                                            <label>Category Description</label>
-                                            <textarea class="form-control" id="category-description" name="description" placeholder="Category Description" required></textarea>
+                                            <label>Material Description</label>
+                                            <textarea class="form-control" id="material-description" name="description" placeholder="Material Description" required></textarea>
                                         </div>
                                        
                                         <button type="submit" class="btn btn-primary">Submit </button>
+                                        
                                     </div>
                                     
+                                  
                                 </form>
                             </div>
                             <!-- /.row (nested) -->
@@ -130,44 +130,42 @@
         };
 
         var id = getUrlParameter('id');
-        var categoryName,categoryDescription;
+        var materialName,materialDescription;
         $.ajax({
-            url: rootUrl + "category/detail/" + id,
+            url: rootUrl + "material/detail/" + id,
             dataType: "json",
             success : function(result) {
                 
-                var data = result['category'];
-                categoryName = data['name'];
-                categoryDescription = data['description'];
+                var data = result['material'];
+                materialName = data['name'];
+                materialDescription = data['description'];
                 
-                $('#category-name').val(categoryName);
-                $('#category-description').val(categoryDescription);
-
+                $('#material-name').val(materialName);
+                $('#material-description').val(materialDescription);
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);
             }
         });
-
         $("form").submit(function(e){
             e.preventDefault();
-            var categoryName = $("#category-name").val();
-            var categoryDescription = $("#category-description").val();
-            var categoryData = new FormData();
-            $("#insert-category").serialize();
-            categoryData.append("name",categoryName);
-            categoryData.append("description",categoryDescription);
+            var materialName = $("#material-name").val();
+            var materialDescription = $("#material-description").val();
+            var materialData = new FormData();
+            
+            materialData.append("name",materialName);
+            materialData.append("description",materialDescription);
             $.ajax({
                 type : "POST",
-                url: rootUrl + "category/update/"+id,
+                url: rootUrl + "material/update/"+id,
                 /*dataType: "json",*/
-                data: categoryData,
+                data: materialData,
                 contentType: false,
                 processData: false,
                 success : function(result) {
                     if (result["success"]) {
 
-                        alert("category updated");
+                        alert("material updated");
                     }
                 },
                 error: function(xhr, resp, text) {

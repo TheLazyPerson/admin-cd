@@ -389,7 +389,7 @@
                             <ul class="nav nav-second-level">
                                 <li>
                                     <a href="showblogs.php">Show Blogs</a>
-                      .clear();          </li>
+                              </li>
                                 <li>
                                     <a href="addnewblog.php">Write New Blog</a>
                                 </li>

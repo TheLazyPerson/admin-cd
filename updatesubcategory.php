@@ -42,7 +42,6 @@
     <div id="wrapper">
 
         <?php 
-
             require_once("includes/header.php");
         ?>
         <!-- Page Content -->
@@ -50,7 +49,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Update Category</h3>
+                        <h3 class="page-header">Update Subcategory</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -63,19 +62,27 @@
                                 <form role="form" id="insert-category">
                                     <div class="col-lg-6">
                                         
-                                        <div class="form-group">
-                                            <label>Category Name</label>
-                                            <input type="text" class="form-control" id="category-name" name="name" placeholder="Category Name" required>
-                                        </div>
+                                            <div class="form-group">
+                                                <label>SubCategory Name</label>
+                                                <input type="text" class="form-control" id="sub-category-name" name="name" placeholder="Sub Category Name" required>
+                                            </div>
 
-                                        <div class="form-group">
-                                            <label>Category Description</label>
-                                            <textarea class="form-control" id="category-description" name="description" placeholder="Category Description" required></textarea>
-                                        </div>
-                                       
-                                        <button type="submit" class="btn btn-primary">Submit </button>
+                                            <div class="form-group">
+                                                <label>SubCategory Description</label>
+                                                <textarea class="form-control" id="sub-category-description" name="description" placeholder="Sub Category Description" required></textarea>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Select Category</label>
+                                                <select class="form-control" id="parent-category" name="parent-category" required>
+                                                    <option>--SELECT OPTION--</option>
+                                                </select>
+                                            </div>
+                                           
+                                            <button type="submit" class="btn btn-primary">Submit </button>
+                                        
                                     </div>
                                     
+                                  
                                 </form>
                             </div>
                             <!-- /.row (nested) -->
@@ -132,34 +139,59 @@
         var id = getUrlParameter('id');
         var categoryName,categoryDescription;
         $.ajax({
-            url: rootUrl + "category/detail/" + id,
+            url: rootUrl + "categories",
             dataType: "json",
             success : function(result) {
-                
-                var data = result['category'];
-                categoryName = data['name'];
-                categoryDescription = data['description'];
-                
-                $('#category-name').val(categoryName);
-                $('#category-description').val(categoryDescription);
-
+                var categoryId;
+                var categoryName = "";
+                var data = result['categories'];
+                var html = "<option> --SELECT OPTION-- </option>";
+                $.each(data, function (key, value) {
+                    categoryId = data[key]['id'];
+                    categoryName = data[key]['name'];
+                    html+='<option value="'+categoryId+'">'+categoryName+'</option>';
+                });
+                $("#parent-category").html(html);
+                $.ajax({
+                    url: rootUrl + "subcategory/detail/" + id,
+                    dataType: "json",
+                    success : function(result) {
+                        
+                        var data = result['subcategory'];
+                        categoryName = data['name'];
+                        categoryDescription = data['description'];
+                        categoryParent = data['parent'];
+                        
+                        $('#sub-category-name').val(categoryName);
+                        $('#sub-category-description').val(categoryDescription);
+                        $('#parent-category').val(categoryParent);
+                    },
+                    error: function(xhr, resp, text) {
+                        console.log(xhr, resp, text);
+                    }
+                });
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);
             }
         });
+        
+
+        
+        
 
         $("form").submit(function(e){
             e.preventDefault();
-            var categoryName = $("#category-name").val();
-            var categoryDescription = $("#category-description").val();
+            var subcategoryName = $("#sub-category-name").val();
+            var subcategoryDescription = $("#sub-category-description").val();
+            var parentCategory = $("#parent-category").val();
             var categoryData = new FormData();
-            $("#insert-category").serialize();
-            categoryData.append("name",categoryName);
-            categoryData.append("description",categoryDescription);
+            categoryData.append("name",subcategoryName);
+            categoryData.append("description",subcategoryDescription);
+            categoryData.append("parent",parentCategory);
             $.ajax({
                 type : "POST",
-                url: rootUrl + "category/update/"+id,
+                url: rootUrl + "subcategory/update/"+id,
                 /*dataType: "json",*/
                 data: categoryData,
                 contentType: false,
@@ -167,7 +199,7 @@
                 success : function(result) {
                     if (result["success"]) {
 
-                        alert("category updated");
+                        alert("subcategory updated");
                     }
                 },
                 error: function(xhr, resp, text) {

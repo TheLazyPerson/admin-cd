@@ -140,7 +140,7 @@
                     subcategoryDescription = data[key]['description'];
                     categoryName = data[key]['parent'];
                     
-                    html += '<tr class="odd "><td>'+ subcategoryName +'</td><td>'+ subcategoryDescription+'</td><td>'+ categoryName+'</td><td class="center"><a href="updatecategory.php?id='+ subcategoryId +'">Update Category</a></td><td class="center"><a href="#" class="delete-sub-category" data-id="'+ subcategoryId +'">Delete</a></td></tr>'; 
+                    html += '<tr class="odd "><td>'+ subcategoryName +'</td><td>'+ subcategoryDescription+'</td><td>'+ categoryName+'</td><td class="center"><a href="updatesubcategory.php?id='+ subcategoryId +'">Update Category</a></td><td class="center"><a href="#" class="delete-sub-category" data-id="'+ subcategoryId +'">Delete</a></td></tr>'; 
                 });
                 $("#categories-table-data").html(html);
                 $(".delete-sub-category").click(function(e){

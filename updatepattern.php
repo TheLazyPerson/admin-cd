@@ -129,16 +129,16 @@
             };
 
             var id = getUrlParameter('id');
-
-             $.ajax({
-            
-                url: rootUrl + "/patterns",
+            var patternName,patternPath;
+            $.ajax({
+                url: rootUrl + "patterns",
                 dataType: "json",
                 success : function(result) {
-                    var patternName, patternPath;
+                    
                     var data = result['patterns'][id];
                     patternName = data['name'];
                     patternPath = data['pattern_path'];
+                    
                     
                     $('#pattern-name').val(patternName);
                     $('.pattern-image-1').attr('src', imageUrl+patternPath );
@@ -148,7 +148,6 @@
                     console.log(xhr, resp, text);
                 }
             });
-            
             function readURL(input, selector) {
 
                 if (input.files && input.files[0]) {
@@ -179,14 +178,14 @@
                 imageData.append("name", name);
                 $.ajax({
                     type : "POST",
-                    url: rootUrl + "pattern/add",
+                    url: rootUrl + "pattern/update/"+id,
                     //dataType : "json",
                     data : imageData,
                     contentType: false,
                     processData: false,
                     success : function(result) {
                         if (result["success"]) {
-                            alert("pattern added");
+                            alert("pattern updated");
                         }
                     },
                     error: function(xhr, resp, text) {
@@ -205,48 +204,3 @@
 
 </html>
 
-
-
-    <!-- Page-Level Demo Scripts - Tables - Use for reference -->
-    <script>
-    $(document).ready(function(e) {
-        
-        
-        var categoryName,categoryDescription;
-       
-
-        $("form").submit(function(e){
-            e.preventDefault();
-            var categoryName = $("#category-name").val();
-            var categoryDescription = $("#category-description").val();
-            var categoryData = new FormData();
-            $("#insert-category").serialize();
-            categoryData.append("name",categoryName);
-            categoryData.append("description",categoryDescription);
-            $.ajax({
-                type : "POST",
-                url: rootUrl + "category/update",
-                /*dataType: "json",*/
-                data: categoryData,
-                contentType: false,
-                processData: false,
-                success : function(result) {
-                    if (result["success"]) {
-
-                        alert("category updated");
-                    }
-                },
-                error: function(xhr, resp, text) {
-                    console.log(xhr, resp, text);
-                }
-            });
-        });
-       
-    });
-    </script>
-
-
-
-</body>
-
-</html>

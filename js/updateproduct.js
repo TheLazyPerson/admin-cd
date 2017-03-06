@@ -1,38 +1,25 @@
 $(document).ready(function (e) {
 	var rootUrl = 'http://localhost/work/api/public/';
-	
-	
-	$.ajax({
-        url: rootUrl + "categories",
-        dataType: "json",
-        success : function(result) {
-        	var categoryId;
-            var categoryName = "";
-            var data = result['categories'];
-            var html = "<option> --SELECT OPTION-- </option>";
-            $.each(data, function (key, value) {
-            	categoryId = data[key]['id'];
-                categoryName = data[key]['name'];
-                html+='<option value="'+categoryId+'">'+categoryName+'</option>';
-            });
-            $("#product-category").html(html);
+  	var getUrlParameter = function getUrlParameter(sParam) {
+	    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+	        sURLVariables = sPageURL.split('&'),
+	        sParameterName,
+	        i;
 
-        },
-        error: function(xhr, resp, text) {
-            console.log(xhr, resp, text);
-        }
-    });
+	    for (i = 0; i < sURLVariables.length; i++) {
+	        sParameterName = sURLVariables[i].split('=');
+
+	        if (sParameterName[0] === sParam) {
+	            return sParameterName[1] === undefined ? true : sParameterName[1];
+	        }
+	    }
+	};
+
+	//do validation for id whether it is number  or not
+	var id = getUrlParameter('id');
 
 
-
-
-    $("#product-category").change(function(){
-    	var categoryid = $(this).val();
-    	
-    	loadSubCategories(categoryid);
-    });
-
-    function loadSubCategories(categoryid){
+	function loadSubCategories(categoryid){
     	$.ajax({
 	        url: rootUrl + "/category/"+categoryid,
 	        dataType: "json",
@@ -53,47 +40,56 @@ $(document).ready(function (e) {
 	        }
 	    });
     }
-    $.ajax({
-        url: rootUrl + "materials",
-        dataType: "json",
-        success : function(result) {
-        	var materialId;
-            var materialName = "";
-            var data = result['materials'];
-            var html = "<option> --SELECT OPTION-- </option>";
-            $.each(data, function (key, value) {
-            	materialId = data[key]['id'];
-                materialName = data[key]['name'];
-                html+='<option value="'+materialId+'">'+materialName+'</option>';
-            });
-            $("#product-material").html(html);
+	
+    $.when(
 
-        },
-        error: function(xhr, resp, text) {
-            console.log(xhr, resp, text);
-        }
-    });
+    	$.ajax({
+	        url: rootUrl + "categories",
+	        dataType: "json",
+	        success : function(result) {
+	        	var categoryId;
+	            var categoryName = "";
+	            var data = result['categories'];
+	            var html = "<option> --SELECT OPTION-- </option>";
+	            $.each(data, function (key, value) {
+	            	categoryId = data[key]['id'];
+	                categoryName = data[key]['name'];
+	                html+='<option value="'+categoryId+'">'+categoryName+'</option>';
+	            });
+	            $("#product-category").html(html);
 
-    
-        var getUrlParameter = function getUrlParameter(sParam) {
-            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-                sURLVariables = sPageURL.split('&'),
-                sParameterName,
-                i;
+	        },
+	        error: function(xhr, resp, text) {
+	            console.log(xhr, resp, text);
+	        }
+	    }),
+	    $.ajax({
+	        url: rootUrl + "materials",
+	        dataType: "json",
+	        success : function(result) {
+	        	var materialId;
+	            var materialName = "";
+	            var data = result['materials'];
+	            var html = "<option> --SELECT OPTION-- </option>";
+	            $.each(data, function (key, value) {
+	            	materialId = data[key]['id'];
+	                materialName = data[key]['name'];
+	                html+='<option value="'+materialId+'">'+materialName+'</option>';
+	            });
+	            $("#product-material").html(html);
 
-            for (i = 0; i < sURLVariables.length; i++) {
-                sParameterName = sURLVariables[i].split('=');
-
-                if (sParameterName[0] === sParam) {
-                    return sParameterName[1] === undefined ? true : sParameterName[1];
-                }
-            }
-        };
-
-        //do validation for id whether it is number  or not
-        var id = getUrlParameter('id');
-
-        $.ajax({
+	        },
+	        error: function(xhr, resp, text) {
+	            console.log(xhr, resp, text);
+	        }
+	    }),
+	    $("#product-category").change(function(){
+	    	var categoryid = $(this).val();
+	    	
+	    	loadSubCategories(categoryid);
+	    })
+    	).then(
+    		 $.ajax({
             
             url: rootUrl + "productnormal/" + id,
             dataType: "json",
@@ -177,6 +173,10 @@ $(document).ready(function (e) {
             }
         })
 
+    	);
+
+       
+
 	function readURL(input, selector) {
 
 	    if (input.files && input.files[0]) {
@@ -250,28 +250,28 @@ $(document).ready(function (e) {
 
 		$.each($('#product-image-1')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_1";
+		    var fname = "1";
 		    projectData.append(fname, file);
 		});
 
 		$.each($('#product-image-2')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_2";
+		    var fname = "2";
 		    projectData.append(fname, file);
 		});
 		$.each($('#product-image-3')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_3";
+		    var fname = "3";
 		    projectData.append(fname, file);
 		});
 		$.each($('#product-image-4')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_4";
+		    var fname = "4";
 		    projectData.append(fname, file);
 		});
 		$.each($('#product-image-5')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_5";
+		    var fname = "5";
 		    projectData.append(fname, file);
 		});
 
@@ -280,22 +280,15 @@ $(document).ready(function (e) {
 		//make the actual request
 		$.ajax({
             type : "POST",
-            url: rootUrl + "product/normal",
+            url: rootUrl + "product/normal/update/"+id,
             dataType : "json",
             data : projectData,
             contentType: false,
         	processData: false,
             success : function(result) {
                 if (result["success"]) {
-                	alert("Product Added");
+                	alert("Product Updated");
                 }
-                $("form")[0].reset();
-                $("#image-1").attr('src','http://placehold.it/200x200');
-                $("#image-2").attr('src','http://placehold.it/200x200');
-                $("#image-3").attr('src','http://placehold.it/200x200');
-                $("#image-4").attr('src','http://placehold.it/200x200');
-                $("#image-5").attr('src','http://placehold.it/200x200');
-
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);

@@ -141,14 +141,14 @@
                                     <div class="row">  
                                     <div class="col-lg-6">
                                         <label>Product Image 1</label>
-                                        <input type="file" name="productimage" class="product-image" id="product-image-1" required>
+                                        <input type="file" name="productimage" class="product-image" id="product-image-1" >
                                         <br>
                                         <img class="img-responsive product-image-1" src="http://placehold.it/200x200" />
 
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Product Image 2</label>
-                                        <input type="file" name="productimage" class="product-image" id="product-image-2" required>
+                                        <input type="file" name="productimage" class="product-image" id="product-image-2" >
                                         <br>
                                         <img class="img-responsive product-image-2" src="http://placehold.it/200x200" />
                                     </div>
@@ -157,13 +157,13 @@
                                     <div class="row">  
                                     <div class="col-lg-6">
                                         <label>Product Image 3</label>
-                                        <input type="file" name="productimage" class="product-image"  id="product-image-3" required>
+                                        <input type="file" name="productimage" class="product-image"  id="product-image-3" >
                                         <br>
                                         <img class="img-responsive product-image-3" src="http://placehold.it/200x200" />
                                     </div>
                                     <div class="col-lg-6">
                                         <label>Product Image 4</label>
-                                        <input type="file" name="productdimention" class="product-image"  id="product-image-4" required>
+                                        <input type="file" name="productdimention" class="product-image"  id="product-image-4" >
                                         <br>
                                         <img class="img-responsive product-image-4" src="http://placehold.it/200x200" />
                                     </div>
@@ -172,7 +172,7 @@
                                     <div class="row">  
                                         <div class="col-lg-6">
                                             <label>Product Image 5</label>
-                                            <input type="file" name="productdimention" class="product-image"  id="product-image-5" required>
+                                            <input type="file" name="productdimention" class="product-image"  id="product-image-5" >
                                             <br>
                                             <img class="img-responsive  product-image-5" src="http://placehold.it/200x200" />
                                         </div>

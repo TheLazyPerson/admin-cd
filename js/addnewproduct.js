@@ -145,28 +145,28 @@ $(document).ready(function (e) {
 
 		$.each($('#product-image-1')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_1";
+		    var fname = "1";
 		    projectData.append(fname, file);
 		});
 
 		$.each($('#product-image-2')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_2";
+		    var fname = "2";
 		    projectData.append(fname, file);
 		});
 		$.each($('#product-image-3')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_3";
+		    var fname = "3";
 		    projectData.append(fname, file);
 		});
 		$.each($('#product-image-4')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_4";
+		    var fname = "4";
 		    projectData.append(fname, file);
 		});
 		$.each($('#product-image-5')[0].files, function (i, file)
 		{
-		    var fname = imageName + "_5";
+		    var fname = "5";
 		    projectData.append(fname, file);
 		});
 
