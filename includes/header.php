@@ -408,6 +408,11 @@
                             <!-- /.nav-second-level -->
                         </li>
                         <li >
+                            <a href="customerreviews.php"><i class="fa fa-comments fa-fw"></i> Customer Reviews</a>
+                            
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li >
                             <a href="#"><i class="fa fa-pencil fa-fw"></i> Manage Testimonials<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level">
                                 <li>

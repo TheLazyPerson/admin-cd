@@ -68,7 +68,7 @@
                                             <th>Price</th>
                                             <th>Material Used</th>
                                             <th>Cash On Delivery</th>
-                                            <th>Visible</th>
+                                            <th>Update</th>
                                             <th>Details</th>
                                             <th>Delete</th>
                                         </tr>
@@ -140,7 +140,7 @@
                     productStatus = data[key]['status'];
                     if (productMaterial == 1) { productMaterial = "Yes" }
                     if (productCod == 1) { productCod = "Yes" }
-                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td>'+ productCod  +'</td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#" class="delete-nameplate" data-id="'+productId+'">Delete</a></td></tr>'; 
+                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productMaterial +'</td><td class="center"><a href="updatenameplate.php?id='+ productId +'">Update</a></td><td class="center"><a href="viewproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="#" class="delete-nameplate" data-id="'+productId+'">Delete</a></td></tr>'; 
                 });
                  $('#dataTables-example').DataTable({
             responsive: true

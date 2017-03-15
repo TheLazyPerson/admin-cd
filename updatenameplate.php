@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -60,7 +58,7 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Add New Nameplate</h3>
+                        <h3 class="page-header">Update Nameplate Details</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
@@ -101,7 +99,7 @@
                                             <input type="number" class="form-control"  placeholder="Max Font Size" id="product-max-fontsize" name="max_font_size" required>
                                         </div>
                                         <div class="form-group">
-                                            <label>Price After Maximum Font Size </label>
+                                            <label>Price After Maximum Font Size</label>
                                             <input type="number" class="form-control" placeholder="Price After Max Font Size" name="price" id="product-price-after-font-max" required>
                                         </div>
                                         <div class="form-group">
@@ -283,6 +281,8 @@
                                             <select class="form-control" id="product-selected-fonts" name="selectedFonts" required>
                                                 <option>--SELECT OPTION--</option>
                                             </select>
+                                            <br>
+                                            <a href="#" class="btn btn-primary" id="remove-font-button">Remove Font</a>
                                         </div>
                                            
                                     </div>
@@ -411,7 +411,7 @@
 
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
-    <script src="js/admin.js"></script>
+    <script src="js/updatenameplate.js"></script>
 
 </body>
 
