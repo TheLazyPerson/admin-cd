@@ -2,10 +2,10 @@ $(document).ready(function (e) {
     var rootUrl = 'http://localhost/work/api/public/';
     var imageUrl = 'http://localhost/work/api/public/';
     color = [];
-    var colorList = "";
-    var motifs = [];
-    var patterns = [];
-    var fonts = [];
+    colorList = "";
+    motifs = [];
+    patterns = [];
+    fonts = [];
 
     var getUrlParameter = function getUrlParameter(sParam) {
         var sPageURL = decodeURIComponent(window.location.search.substring(1)),
@@ -94,7 +94,6 @@ $(document).ready(function (e) {
             console.log(xhr, resp, text);
         }
     });
-    var rootUrl = 'http://localhost/work/api/public/';
     $.ajax({
         
         url: rootUrl + "product/nameplate/" + id,
@@ -154,10 +153,21 @@ $(document).ready(function (e) {
             productFontEffect = data['font_effect'];
             productColors = data['colors'];
             productPatterns = data['patterns'];
-            motifs = data['motifs'];
-            fonts = data['fonts'];
+            productMotifs = data['motifs'];
+            productFonts = data['fonts'];
 
             loadColors(productColors);
+            $.each(data['patterns'],function(key, value){
+                patterns.push(value["id"]);
+            });
+            $.each(data['fonts'],function(key, value){
+                
+                addFont(value["id"], value["name"]);
+            });
+
+            $.each(data['motifs'],function(key, value){
+                motifs.push(value["id"]);
+            });
             productImage = imageUrl+data['images']["1"];
             productImage2 = imageUrl+data['images']["2"];
             productImage3 = imageUrl+data['images']["3"];
@@ -212,7 +222,7 @@ $(document).ready(function (e) {
             $(".product-dimention").attr('src', productImage4);
             $(".product-customize").attr('src', productImage5);
             
-            color = data['images'];
+            //color = data['images'];
 
         },
         error: function(xhr, resp, text) {
@@ -227,13 +237,15 @@ $(document).ready(function (e) {
         e.preventDefault();
         var fontId = $("#product-fonts").val();
         var fontName = $( "#product-fonts option:selected" ).text();
-        var idx = $.inArray(fontId, fonts);
-        if (idx == -1) {
-            fonts.push(fontId);
-            var html ='<option value="'+fontId+'">'+fontName+'</option>';
-            $("#product-selected-fonts").append(html);
-        } 
         
+        addFont(fontId, fontName);
+    });
+    $("#remove-font-button").click(function(e){
+        e.preventDefault();
+        var fontId = $("product-selected-fonts").val();
+        var fontName = $( "product-selected-fonts option:selected" ).text();
+        
+        removeFont(fontId, fontName);
     });
     $("#product-category").change(function(){
         var categoryid = $(this).val();
@@ -258,12 +270,20 @@ $(document).ready(function (e) {
         });
 
     });
-
-    var newAddedColors = [] ;
-
+    //adding color to color list
+    $("#add-color").click(function(e) {
+        e.preventDefault();
+        var addedColor = $("#product-color").val();
+        //var isOk  = /^#[0-9A-F]{6}$/i.test(addedColor);
+        var isOk = /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(addedColor);
+        
+        if (isOk) {
+            addColor(addedColor);
+        }
+    });
     function addColor(colorTemp){
         if(jQuery.inArray(colorTemp, color ) !== -1){
-
+            return false;
         }
 
         color.push(colorTemp);
@@ -272,22 +292,35 @@ $(document).ready(function (e) {
         $("#product-color").val('');
     }
 
-    //adding color to color list
-    $("#add-color").click(function(e) {
-        e.preventDefault();
-        var addedColor = $("#product-color").val();
-        //var isOk  = /^#[0-9A-F]{6}$/i.test(addedColor);
-        var isOk = /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(addedColor);
-        if (isOk) {
-            newAddedColors.push(addedColor);
-            colorList += '<li class="clearfix"><span style="background-color: '+addedColor+';"></span> &nbsp;&nbsp;&nbsp;'+ addedColor+'</li>';
-            $(".color-list").html(colorList);
-            $("#product-color").val('');
-        }
-    });
-    
-    function loadSelectedFonts(){
+    function addFont(fontTemp, fontName){
+        var idx = $.inArray(fontTemp, fonts);
+        if (idx == -1) {
+            fonts.push(fontTemp);
+            var html ='<option value="'+fontTemp+'">'+fontName+'</option>';
+            $("#product-selected-fonts").append(html);
+        } 
+    }
+    function removeFont(fontTemp, fontName){
+        var idx = $.inArray(fontTemp, fonts);
+        if (idx == -1) {
+            motifs = jQuery.grep(motifs, function(value) {
+              return value != id;
+            });
+        } 
+    }
 
+    function loadSelectedPatterns(){
+        $.each(patterns,function(key, value){
+            addPattern(value["id"]);
+        });
+    }
+    function loadSelectedMotifs(){
+        $.each(motifs,function(key, value){
+            addMotif(value["id"]);
+        });
+    }
+    function loadSelectedFonts(){
+        
     }
 
     function loadColors(colors){
@@ -364,7 +397,6 @@ $(document).ready(function (e) {
         var imageName= name;
         imageName = imageName.toLowerCase().replace(/ /g, '-');
         
-        
         productData.append("name", name);
         productData.append("description", description);
         productData.append("addtional_information", additionalInformation);
@@ -391,7 +423,6 @@ $(document).ready(function (e) {
         productData.append("motifs", JSON.stringify(motifs));
         productData.append("patterns", JSON.stringify(patterns));
         productData.append("fonts", JSON.stringify(fonts));
-
         $.each($('#product-image-1')[0].files, function (i, file)
         {
             var fname = imageName + "_1";
@@ -422,19 +453,14 @@ $(document).ready(function (e) {
         //make the actual request
         $.ajax({
             type : "POST",
-            url: rootUrl + "product/nameplate",
+            url: rootUrl + "product/nameplate/update/"+id,
             //dataType : "json",
             data : productData,
             contentType: false,
             processData: false,
             success : function(result) {
-                alert("Nameplate added");
-                $("form")[0].reset();
-                $("#image-1").attr('src','http://placehold.it/200x200');
-                $("#image-2").attr('src','http://placehold.it/200x200');
-                $("#image-3").attr('src','http://placehold.it/200x200');
-                $("#image-4").attr('src','http://placehold.it/200x200');
-                $("#image-5").attr('src','http://placehold.it/200x200');
+                console.log(result);
+                alert("Nameplate Updated");
 
             },
             error: function(xhr, resp, text) {
@@ -462,8 +488,11 @@ $(document).ready(function (e) {
                     motifName = data[key]['name'];
                     motifDescription = data[key]['description'];
                     motifImagePath = data[key]['motif_path'];
-                    html += '<div class="col-xs-12 col-sm-6 col-md-3"><div class="thumbnail"><img src="'+ imageUrl+motifImagePath+'" class="img-responsive"  alt=""><div class="caption"><h4>'+motifName+'</h4><p>'+ motifDescription+'</p><p><a href="#" class="btn btn-info select-motif" id="'+motifId+'"  role="button">Select </a> </p></div>  </div></div>';
-
+                    if ($.inArray(motifId,motifs) != -1) {
+                        html += '<div class="col-xs-12 col-sm-6 col-md-3"><div class="thumbnail"><img src="'+ imageUrl+motifImagePath+'" class="img-responsive"  alt=""><div class="caption"><h4>'+motifName+'</h4><p>'+ motifDescription+'</p><p><a href="#" class="btn btn-info select-motif btn-danger" id="'+motifId+'"  role="button">selected</a> </p></div>  </div></div>';
+                    }else{
+                        html += '<div class="col-xs-12 col-sm-6 col-md-3"><div class="thumbnail"><img src="'+ imageUrl+motifImagePath+'" class="img-responsive"  alt=""><div class="caption"><h4>'+motifName+'</h4><p>'+ motifDescription+'</p><p><a href="#" class="btn btn-info select-motif" id="'+motifId+'"  role="button">Select </a> </p></div>  </div></div>';
+                    }   
                 });
                 modal.find("#motifs-data").html(html);
                 $('.select-motif').click(function(e){
@@ -507,7 +536,15 @@ $(document).ready(function (e) {
                         patternId = data[key]['id'];
                         patternName = data[key]['name'];
                         patternImagePath = data[key]['pattern_path'];
-                        html += '<div class="col-xs-12 col-sm-6 col-md-3"> <div class="thumbnail"> <img src="'+ imageUrl+patternImagePath+'" class="img-responsive" alt=""> <div class="caption"> <h4>'+patternName+'</h4> <p><a href="" class="btn btn-info select-pattern" id="'+patternId+'" role="button">Select </a> </p></div></div></div>';
+                        if ($.inArray(patternId,patterns) != -1) {
+                            html += '<div class="col-xs-12 col-sm-6 col-md-3"> <div class="thumbnail"> <img src="'+ imageUrl+patternImagePath+'" class="img-responsive" alt=""> <div class="caption"> <h4>'+patternName+'</h4> <p><a href="" class="btn btn-info select-pattern btn-danger" id="'+patternId+'" role="button">selected</a> </p></div></div></div>';
+
+                        }else{
+                          html += '<div class="col-xs-12 col-sm-6 col-md-3"> <div class="thumbnail"> <img src="'+ imageUrl+patternImagePath+'" class="img-responsive" alt=""> <div class="caption"> <h4>'+patternName+'</h4> <p><a href="" class="btn btn-info select-pattern " id="'+patternId+'" role="button">Select </a> </p></div></div></div>';
+  
+                        }
+
+                        
 
                        
                     });
@@ -527,8 +564,6 @@ $(document).ready(function (e) {
                             $(this).addClass(" btn-danger");
                             $(this).text("selected");
                         }
-                        e.preventDefault();
-                        patterns.push(this.id);
                     }); 
                    
                 },
