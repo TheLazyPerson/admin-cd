@@ -17,6 +17,7 @@
     <!-- MetisMenu CSS -->
     <link href="vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
 
+
        <!-- DataTables CSS -->
     <link href="vendor/datatables-plugins/dataTables.bootstrap.css" rel="stylesheet">
 
@@ -57,28 +58,28 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-12">
-                        <h3 class="page-header">Manage Products</h3>
+                        <h3 class="page-header">Coupons</h3>
                     </div>
                     <!-- /.col-lg-12 -->
                 </div>
                 <div class="row">
-                    <div class="col-lg-12">
+                   <div class="col-lg-12">
                         <div class="panel panel-default">
                             
                             <div class="panel-body">
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name Of the Product</th>
-                                            <th>Price</th>
-                                            <th>Material Used</th>
-                                            <th>Cash On Delivery</th>
-                                            <th>Details</th>
-                                            <th>Update</th>
+                                            <th>Coupon id</th>
+                                            <th>Coupon Code</th>
+                                            <th>Start Date</th>
+                                            <th>End Date</th>
+                                            <th>Discount(%)</th>
+                                            <th>Edit</th>
                                             <th>Delete</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="nameplates-table-data">
+                                    <tbody id="coupons-table-data">
                                         
                                        
                                     </tbody>
@@ -90,6 +91,7 @@
                         <!-- /.panel -->
                     </div>
                     <!-- /.col-lg-12 -->
+                    
                 </div>
                 <!-- /.row -->
             </div>
@@ -109,11 +111,11 @@
     <!-- Metis Menu Plugin JavaScript -->
     <script src="vendor/metisMenu/metisMenu.min.js"></script>
 
-    <!-- DataTables JavaScript -->
+     <!-- DataTables JavaScript -->
     <script src="vendor/datatables/js/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables-plugins/dataTables.bootstrap.min.js"></script>
     <script src="vendor/datatables-responsive/dataTables.responsive.js"></script>
-
+    
     <!-- Custom Theme JavaScript -->
     <script src="dist/js/sb-admin-2.js"></script>
 
@@ -121,50 +123,46 @@
     <!-- Page-Level Demo Scripts - Tables - Use for reference -->
     <script>
     $(document).ready(function() {
-        
-        var rootUrl = 'http://localhost/work/api/public/';
+        $('#dataTables-example').DataTable({
+            responsive: true
+        });
+       /* var rootUrl = 'http://localhost/work/api/public/';
         $.ajax({
             
-            url: rootUrl + "products/normal",
+            url: rootUrl + "materials",
             dataType: "json",
             success : function(result) {
                 var html = "";
-                var productId = "";
-                var productName ="";
-                var productPrice = "";
-                var productMaterial ="";
-                var productCod = "";
-                var productStatus = "";
+                var materialId = "";
+                var materialName ="";
+                var materialDescription = "";
                 //console.log(result);
-                var total_count = result["product_count"];
-                var data = result['products'];
+                var data = result['materials'];
                 
                 $.each(data, function (key, value) {
                 
-                    productId = data[key]['id'];
-                    productName = data[key]['name'];
-                    productPrice = data[key]['price'];
-                    productMaterial = data[key]['material'];
-                    productCod = data[key]['cod'];
-                    productStatus = data[key]['status'];
-                    if (productMaterial == 1) { productMaterial = "Yes" }
-                    if (productCod == 1) { productCod = "Yes" }
-                    html += '<tr class="odd "><td>'+ productName +'</td><td>'+ productPrice+'</td><td>' + productMaterial + '</td><td>'+ productCod  +'</td><td class="center"><a href="viewnormalproduct.php?id='+ productId +'">View Product</a></td><td class="center"><a href="updatenormalproduct.php?id='+ productId +'">Update</a></td><td class="center"><a href="#" class="delete-product" data-id="'+productId+'">Delete</a></td></tr>'; 
+                    materialId = data[key]['id'];
+                    materialName = data[key]['name'];
+                    materialDescription = data[key]['description'];
+                    
+                    html += '<tr class="odd "><td>'+ materialName +'</td><td>'+ materialDescription+'</td><td class="center"><a href="updatematerial.php?id='+ materialId +'">Update Material</a></td><td class="center"><a class="delete-material" href="#" data-id="'+ materialId +'">Delete</a></td></tr>'; 
                 });
-                $("#nameplates-table-data").html(html);
+                $("#materials-table-data").html(html);
+                
                 $('#dataTables-example').DataTable({
                     responsive: true
                 });
-                $(".delete-product").click(function(e){
+
+                $(".delete-material").click(function(e){
                         e.preventDefault();
                         var link = $(this);
                         var id = link.data("id");
                         if (confirm('Are you sure?')) {
                             $.ajax({
-                                
-                                url: rootUrl + "products/normal/delete/"+id,
+                                url: rootUrl + "material/delete/"+id,
                                 dataType: "json",
                                 success: function(result){
+                                    
                                     location.reload(true);
                                 },
                                 error: function(xhr, resp, text) {
@@ -174,13 +172,12 @@
 
                         }
                         
-                });
-                
+                    })
             },
             error: function(xhr, resp, text) {
                 console.log(xhr, resp, text);
             }
-        })
+        })*/
     });
     </script>
 

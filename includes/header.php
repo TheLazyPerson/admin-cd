@@ -1,4 +1,5 @@
-<!-- Navigation -->
+
+        <!-- Navigation -->
         <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -212,7 +213,7 @@
                         <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                         </li>
                         <li class="divider"></li>
-                        <li><a href="index.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        <li><a id="logout-user"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->
@@ -224,17 +225,7 @@
             <div class="navbar-default sidebar" role="navigation">
                 <div class="sidebar-nav navbar-collapse">
                     <ul class="nav" id="side-menu">
-                        <li class="sidebar-search">
-                            <div class="input-group custom-search-form">
-                                <input type="text" class="form-control" placeholder="Search...">
-                                <span class="input-group-btn">
-                                    <button class="btn btn-default" type="button">
-                                        <i class="fa fa-search"></i>
-                                    </button>
-                                </span>
-                            </div>
-                            <!-- /input-group -->
-                        </li>
+                        
                         <li>
                             <a href="home.php"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                         </li>
@@ -420,6 +411,19 @@
                                 </li>
                                 <li>
                                     <a href="addnewtestimonial.php">Add New Testimonial</a>
+                                </li>
+                                
+                            </ul>
+                            <!-- /.nav-second-level -->
+                        </li>
+                        <li >
+                            <a href="#"><i class="fa fa-ticket fa-fw"></i> Manage Coupons<span class="fa arrow"></span></a>
+                            <ul class="nav nav-second-level">
+                                <li>
+                                    <a href="showallcoupons.php">Show Coupons</a>
+                                </li>
+                                <li>
+                                    <a href="addnewcoupon.php">Add New Coupon</a>
                                 </li>
                                 
                             </ul>

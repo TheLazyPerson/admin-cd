@@ -58,62 +58,25 @@
                        
                         <div class="panel-body">
                             <div class="row">
-                                <form role="form">
+                                <form role="form" id="add-new-user">
                                     <div class="col-lg-6">
                                         
                                             <div class="form-group">
-                                                <label>First Name</label>
-                                                <input type="text" class="form-control"  placeholder="First Name" required>
+                                                <label>Email</label>
+                                                <input type="email" class="form-control" id="admin-email" name="username" placeholder="Email" required>
                                             </div>
 
-
-                                            <div class="form-group">
-                                                <label>Username</label>
-                                                <input type="text" class="form-control" placeholder="Username" required>
-                                            </div>
                                             <div class="form-group">
                                                 <label>Password</label>
-                                                <input type="password" class="form-control" placeholder="Password" required>
+                                                <input type="password" id="admin-password" class="form-control" placeholder="Password" required>
                                             </div>
                                             
-                                            <div class="form-group">
-                                                <label>Date of Birth</label>
-                                                <input type="date" class="form-control" placeholder="Phone Number" required>
-                                            </div>
-                                            
-
-                                           
                                             <button type="submit" class="btn btn-primary">Submit </button>
                                             <button type="reset" class="btn btn-warning">Reset Button</button>
                                         
                                     </div>
                                     
-                                    <!-- /.col-lg-6 (nested) -->
-                                    <div class="col-lg-6">
-
-                                            <div class="form-group">
-                                                <label>Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Email</label>
-                                                <input type="email" class="form-control" placeholder="Email" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Phone Number</label>
-                                                <input type="Phone" class="form-control" placeholder="Phone Number" required>
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Gender</label>
-                                                <select class="form-control">
-                                                    <option> --SELECT OPTION-- </option>
-                                                    <option value="m">Male</option>
-                                                    <option value="f">Female</option>
-                                                    <option value="t">Transgender</option>
-                                                </select>
-                                            </div>
-                                           
-                                    </div>
+                                    
                                 </form>
                             </div>
                             <!-- /.row (nested) -->

@@ -25,8 +25,8 @@ $(document).ready(function (e) {
 
     //do validation for id whether it is number  or not
     var id = getUrlParameter('id');
-
-    $.ajax({
+    $.when(
+        $.ajax({
         url: rootUrl + "categories",
         dataType: "json",
         success : function(result) {
@@ -40,12 +40,34 @@ $(document).ready(function (e) {
                 html+='<option value="'+categoryId+'">'+categoryName+'</option>';
             });
             $("#product-category").html(html);
+            $("#product-category").change(function(){
+                var categoryid = $("#product-category").val();
+                $.ajax({
+                    url: rootUrl + "/category/"+categoryid,
+                    dataType: "json",
+                    success : function(result) {
+                        var categoryId;
+                        var categoryName = "";
+                        var data = result['subcategories'];
+                        var html = "<option> --SELECT OPTION-- </option>";
+                        $.each(data, function (key, value) {
+                            categoryId = data[key]['id'];
+                            categoryName = data[key]['name'];
+                            html+='<option value="'+categoryId+'">'+categoryName+'</option>';
+                        });
+                        $("#product-sub-category").html(html);
+                    },
+                    error: function(xhr, resp, text) {
+                        console.log(xhr, resp, text);
+                    }
+                });
 
+            });
         },
         error: function(xhr, resp, text) {
             console.log(xhr, resp, text);
         }
-    });
+    }),
 
      $.ajax({
             
@@ -72,9 +94,8 @@ $(document).ready(function (e) {
         error: function(xhr, resp, text) {
             console.log(xhr, resp, text);
         }
-    });
-
-    $.ajax({
+    }),
+     $.ajax({
         url: rootUrl + "materials",
         dataType: "json",
         success : function(result) {
@@ -93,9 +114,10 @@ $(document).ready(function (e) {
         error: function(xhr, resp, text) {
             console.log(xhr, resp, text);
         }
-    });
-    $.ajax({
-        
+    })
+
+        ).done(function(){
+        $.ajax({
         url: rootUrl + "product/nameplate/" + id,
         dataType: "json",
         success : function(result) {
@@ -194,14 +216,35 @@ $(document).ready(function (e) {
             $( "#product-fitting-place option:selected" ).text(productFittingPlace);
 
             $("#product-material option").filter(function() {
-                return this.text == productMaterial; 
-            }).attr('selected', true)
+                return this.text === productMaterial; 
+            }).attr('selected', true);
             $("#product-category option").filter(function() {
-                return this.text == productCategory; 
-            }).attr('selected', true)
-            $("#product-sub-category option").filter(function() {
-                return this.text == productSubCategory; 
-            }).attr('selected', true)
+                return this.text === productCategory; 
+            }).attr('selected', true);
+            var categoryid = $("#product-category").val();
+                $.ajax({
+                    url: rootUrl + "/category/"+categoryid,
+                    dataType: "json",
+                    success : function(result) {
+                        var categoryId;
+                        var categoryName = "";
+                        var data = result['subcategories'];
+                        var html = "<option> --SELECT OPTION-- </option>";
+                        $.each(data, function (key, value) {
+                            categoryId = data[key]['id'];
+                            categoryName = data[key]['name'];
+                            html+='<option value="'+categoryId+'">'+categoryName+'</option>';
+                        });
+                        $("#product-sub-category").html(html);
+                        $("#product-sub-category option").filter(function() {
+                            return this.text === productSubCategory; 
+                        }).attr('selected', true)
+                    },
+                    error: function(xhr, resp, text) {
+                        console.log(xhr, resp, text);
+                    }
+            });
+            
             $("#product-use option").filter(function() {
                 return this.text == productUse; 
             }).attr('selected', true)
@@ -230,6 +273,12 @@ $(document).ready(function (e) {
         }
     })
 
+    });
+    
+
+    
+    
+
    
 
 
@@ -242,34 +291,12 @@ $(document).ready(function (e) {
     });
     $("#remove-font-button").click(function(e){
         e.preventDefault();
-        var fontId = $("product-selected-fonts").val();
-        var fontName = $( "product-selected-fonts option:selected" ).text();
+        var fontId = $("#product-selected-fonts").val();
+        var fontName = $( "#product-selected-fonts option:selected" ).text();
         
         removeFont(fontId, fontName);
     });
-    $("#product-category").change(function(){
-        var categoryid = $(this).val();
-        $.ajax({
-            url: rootUrl + "/category/"+categoryid,
-            dataType: "json",
-            success : function(result) {
-                var categoryId;
-                var categoryName = "";
-                var data = result['subcategories'];
-                var html = "<option> --SELECT OPTION-- </option>";
-                $.each(data, function (key, value) {
-                    categoryId = data[key]['id'];
-                    categoryName = data[key]['name'];
-                    html+='<option value="'+categoryId+'">'+categoryName+'</option>';
-                });
-                $("#product-sub-category").html(html);
-            },
-            error: function(xhr, resp, text) {
-                console.log(xhr, resp, text);
-            }
-        });
-
-    });
+    
     //adding color to color list
     $("#add-color").click(function(e) {
         e.preventDefault();
@@ -281,17 +308,38 @@ $(document).ready(function (e) {
             addColor(addedColor);
         }
     });
+    
     function addColor(colorTemp){
         if(jQuery.inArray(colorTemp, color ) !== -1){
             return false;
         }
 
         color.push(colorTemp);
-        colorList += '<li class="clearfix"><span style="background-color: '+colorTemp+';"></span> &nbsp;&nbsp;&nbsp;'+ colorTemp+'</li>';
+        colorList += '<li class="clearfix"><span style="background-color: '+colorTemp+';"></span> &nbsp;&nbsp;&nbsp;'+ colorTemp+'</li> <a href="#" class="remove-color"  data-color="'+colorTemp+'"> <span class="glyphicon glyphicon-remove"></span></a>';
         $(".color-list").html(colorList);
         $("#product-color").val('');
+        //adding color to color list
+        $(".remove-color").click(function(e) {
+            e.preventDefault();
+            var color = $(this).data("color");
+            //var isOk  = /^#[0-9A-F]{6}$/i.test(addedColor);
+            var isOk = /^#[0-9a-f]{3}(?:[0-9a-f]{3})?$/i.test(color);
+            
+            if (isOk) {
+                removeColor(color);
+            }
+        });
     }
-
+    function removeColor(colorTemp){
+        if(jQuery.inArray(colorTemp, color ) > -1){
+            fonts = jQuery.grep(color, function(value) {
+              return value != colorTemp;
+            });
+            
+            $(".color-list li:contains(\""+colorTemp+"\")").next().remove();
+            $(".color-list li:contains(\""+colorTemp+"\")").remove();
+        } 
+    }
     function addFont(fontTemp, fontName){
         var idx = $.inArray(fontTemp, fonts);
         if (idx == -1) {
@@ -302,10 +350,11 @@ $(document).ready(function (e) {
     }
     function removeFont(fontTemp, fontName){
         var idx = $.inArray(fontTemp, fonts);
-        if (idx == -1) {
-            motifs = jQuery.grep(motifs, function(value) {
-              return value != id;
+        if (idx > -1) {
+            fonts = jQuery.grep(fonts, function(value) {
+              return value != fontTemp;
             });
+            $("#product-selected-fonts option[value=\""+fontTemp+"\"]").remove();
         } 
     }
 
@@ -425,28 +474,28 @@ $(document).ready(function (e) {
         productData.append("fonts", JSON.stringify(fonts));
         $.each($('#product-image-1')[0].files, function (i, file)
         {
-            var fname = imageName + "_1";
+            var fname = "1";
             productData.append(fname, file);
         });
 
         $.each($('#product-image-2')[0].files, function (i, file)
         {
-            var fname = imageName + "_2";
+            var fname = "2";
             productData.append(fname, file);
         });
         $.each($('#product-image-3')[0].files, function (i, file)
         {
-            var fname = imageName + "_3";
+            var fname = "3";
             productData.append(fname, file);
         });
         $.each($('#product-dimention')[0].files, function (i, file)
         {
-            var fname = imageName + "_4";
+            var fname = "4";
             productData.append(fname, file);
         });
         $.each($('#product-customize')[0].files, function (i, file)
         {
-            var fname = imageName + "_5";
+            var fname = "5";
             productData.append(fname, file);
         });
 

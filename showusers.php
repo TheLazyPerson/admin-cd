@@ -66,161 +66,103 @@
                                 <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                     <thead>
                                         <tr>
-                                            <th>Name</th>
                                             <th>Username</th>
-                                            <th>Update</th>
                                             <th>Delete</th>
                                             <th>Allowed</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
                                         <tr class="odd ">
-                                            <td>Rakesh</td>
                                             <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
                                             <td class="center">delete</td>
                                             <td class="center">Yes</td>
                                         </tr>
-                                        <tr class="odd ">
-                                            <td>Rakesh</td>
-                                            <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
-                                            <td class="center">delete</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Rakesh</td>
-                                            <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
-                                            <td class="center">delete</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
-                                        <tr class="odd ">
-                                            <td>Rakesh</td>
-                                            <td>rakeshkarli@gmail.com</td>
-                                            <td>update</td>
-                                            <td class="center">delete</td>
-                                            <td class="center">Yes</td>
-                                        </tr>
+                                       
                                     </tbody>
                                 </table>
                                 
